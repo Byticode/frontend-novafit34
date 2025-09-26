@@ -27,7 +27,7 @@ export const Sidebar: React.FC = () => {
       </nav>
       {/* Opción Salir (Logout) */}
       <div className="px-4 py-1 border-t border-gray-700">
-        <NavItem name="Salir" href="/logout" icon={LogOut} isLogout={true} />
+        <NavItem name="Salir" href="/login" icon={LogOut} isLogout={true} />
       </div>
     </div>
   );
