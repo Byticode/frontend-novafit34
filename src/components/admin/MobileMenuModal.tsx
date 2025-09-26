@@ -51,7 +51,7 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({ isOpen, onClos
         
         {/* Opción Salir (Logout) */}
         <div className="p-4 border-t border-gray-700 mt-4" onClick={onClose}>
-          <NavItem name="Salir" href="/logout" icon={LogOut} isLogout={true} />
+          <NavItem name="Salir" href="/login" icon={LogOut} isLogout={true} />
         </div>
 
       </div>
