@@ -1,5 +1,5 @@
 import React from 'react';
-import { LucideIcon } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 interface ActivityItemProps {
   icon: LucideIcon;
@@ -7,7 +7,11 @@ interface ActivityItemProps {
   description: string;
 }
 
-export const ActivityItem: React.FC<ActivityItemProps> = ({ icon: Icon, title, description }) => {
+export const ActivityItem: React.FC<ActivityItemProps> = ({
+  icon: Icon,
+  title,
+  description,
+}) => {
   return (
     <div className="flex items-start mb-4 last:mb-0">
       <div className="p-2 bg-indigo-600/20 text-indigo-400 rounded-full flex-shrink-0 mr-3">

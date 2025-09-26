@@ -1,5 +1,16 @@
 import React from 'react';
-import { Home, Users, Calendar, DollarSign, BarChart, ShoppingBag, Bell, Settings, LogOut, Briefcase } from 'lucide-react';
+import {
+  Home,
+  Users,
+  Calendar,
+  DollarSign,
+  BarChart,
+  ShoppingBag,
+  Bell,
+  Settings,
+  LogOut,
+  Briefcase,
+} from 'lucide-react';
 import { NavItem } from './NavItem.tsx';
 
 const adminLinks = [
@@ -27,7 +38,7 @@ export const Sidebar: React.FC = () => {
       </nav>
       {/* Opción Salir (Logout) */}
       <div className="px-4 py-1 border-t border-gray-700">
-        <NavItem name="Salir" href="/login" icon={LogOut} isLogout={true} />
+        <NavItem name="Salir" href="/login" icon={LogOut} />
       </div>
     </div>
   );
