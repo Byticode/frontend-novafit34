@@ -6,7 +6,11 @@ interface DashboardCardProps {
   description?: string;
 }
 
-export const DashboardCard: React.FC<DashboardCardProps> = ({ title, value, description }) => {
+export const DashboardCard: React.FC<DashboardCardProps> = ({
+  title,
+  value,
+  description,
+}) => {
   return (
     <div className="bg-blue-primary p-6 rounded-lg shadow-md flex flex-col justify-between">
       <h3 className="text-sm font-medium text-gray-400 mb-2">{title}</h3>

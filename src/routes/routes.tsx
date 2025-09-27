@@ -3,6 +3,7 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AdminLayout } from '../layouts/AdminLayout.tsx';
 import { LoginPage } from '../pages/auth/LoginPage.tsx';
 import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage.tsx';
+import { ClassesPage } from '../pages/admin/ClassesPage.tsx';
 import { useAuth } from '../hooks/UseAuth.tsx';
 
 const PrivateRoute: React.FC<{
@@ -41,6 +42,7 @@ export const AppRoutes = () => {
             <AdminLayout>
               <Routes>
                 <Route path="dashboard" element={<AdminDashboardPage />} />
+                <Route path="classes" element={<ClassesPage />} />
 
                 <Route
                   path="*"
