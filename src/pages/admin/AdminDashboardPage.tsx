@@ -1,13 +1,15 @@
 import React from 'react';
 import { UserPlus, CalendarCheck, DollarSign } from 'lucide-react';
-import { DashboardCard } from '../../components/admin/dashboard/DashboardCard.tsx'
+import { DashboardCard } from '../../components/admin/dashboard/DashboardCard.tsx';
 import { ActivityItem } from '../../components/admin/dashboard/ActivityItem.tsx';
 
 export const AdminDashboardPage: React.FC = () => {
   return (
     <div className="min-h-screen p-2 lg:p-8">
       {/* En mobile, el título está en el header del AdminLayout */}
-      <h1 className="text-3xl lg:text-4xl font-bold text-white mb-6 lg:mb-8 hidden lg:block">Dashboard</h1> 
+      <h1 className="text-3xl lg:text-4xl font-bold text-white mb-6 lg:mb-8 hidden lg:block">
+        Dashboard
+      </h1>
 
       {/* Grid de Métricas Principales */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
@@ -19,37 +21,49 @@ export const AdminDashboardPage: React.FC = () => {
       <div className="grid grid-cols-1 gap-6">
         {/* Sección de Actividad Reciente */}
         <div className="p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-white mb-8">Actividad reciente</h2>
+          <h2 className="text-xl font-semibold text-white mb-8">
+            Actividad reciente
+          </h2>
           <div className="flex flex-col gap-4">
-            <ActivityItem 
-              icon={UserPlus} 
-              title="Nuevo miembro registrado" 
-              description="Emmanuel C. se unió a Novafit34" 
+            <ActivityItem
+              icon={UserPlus}
+              title="Nuevo miembro registrado"
+              description="Emmanuel C. se unió a Novafit34"
             />
-            <ActivityItem 
-              icon={CalendarCheck} 
-              title="Clase de yoga reservada" 
-              description="Dua Lipa reservó la clase de yoga" 
+            <ActivityItem
+              icon={CalendarCheck}
+              title="Clase de yoga reservada"
+              description="Dua Lipa reservó la clase de yoga"
             />
-            <ActivityItem 
-              icon={DollarSign} 
-              title="Pago recibido" 
-              description="Se recibió un pago de $100" 
+            <ActivityItem
+              icon={DollarSign}
+              title="Pago recibido"
+              description="Se recibió un pago de $100"
             />
           </div>
         </div>
 
         {/* Sección de Próximas Clases */}
         <div className="bg-blue-primary/60 p-4 md:p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-white mb-6">Próximas clases</h2>
+          <h2 className="text-xl font-semibold text-white mb-6">
+            Próximas clases
+          </h2>
           <div className="overflow-x-auto">
             <table className="min-w-full text-left">
               <thead>
                 <tr className="border-b border-gray-700">
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">Clase</th>
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">Instructor</th>
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">Hora</th>
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">Miembros inscritos</th>
+                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    Clase
+                  </th>
+                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    Instructor
+                  </th>
+                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    Hora
+                  </th>
+                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    Miembros inscritos
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -62,7 +76,10 @@ export const AdminDashboardPage: React.FC = () => {
                     <div className="flex justify-center lg:justify-start items-center">
                       <span>15</span>
                       <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
-                        <div className="bg-indigo-500 h-full rounded-full" style={{ width: '75%' }}></div>
+                        <div
+                          className="bg-indigo-500 h-full rounded-full"
+                          style={{ width: '75%' }}
+                        ></div>
                       </div>
                     </div>
                   </td>
@@ -76,7 +93,10 @@ export const AdminDashboardPage: React.FC = () => {
                     <div className="flex justify-center lg:justify-start items-center">
                       <span>18</span>
                       <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
-                        <div className="bg-indigo-500 h-full rounded-full" style={{ width: '90%' }}></div>
+                        <div
+                          className="bg-indigo-500 h-full rounded-full"
+                          style={{ width: '90%' }}
+                        ></div>
                       </div>
                     </div>
                   </td>
@@ -90,7 +110,10 @@ export const AdminDashboardPage: React.FC = () => {
                     <div className="flex justify-center lg:justify-start items-center">
                       <span>12</span>
                       <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
-                        <div className="bg-indigo-500 h-full rounded-full" style={{ width: '60%' }}></div>
+                        <div
+                          className="bg-indigo-500 h-full rounded-full"
+                          style={{ width: '60%' }}
+                        ></div>
                       </div>
                     </div>
                   </td>

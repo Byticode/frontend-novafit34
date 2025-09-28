@@ -2,6 +2,7 @@ import React, { type JSX } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AdminLayout } from '../layouts/AdminLayout.tsx';
 import { LoginPage } from '../pages/auth/LoginPage.tsx';
+import { RegisterPage } from '../pages/auth/RegisterPage.tsx';
 import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage.tsx';
 import { useAuth } from '../hooks/UseAuth.tsx';
 
@@ -29,8 +30,8 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
-      {/* ruta para registro y recuperación */}
-      {/* <Route path="/register" element={} /> */}
+      <Route path="/register" element={<RegisterPage />} />
+      {/* ruta para recuperación */}
 
       {/* Rutas Privadas del Administrador */}
       {/* Envolvemos todas las vistas de admin en AdminLayout y PrivateRoute */}
@@ -41,7 +42,6 @@ export const AppRoutes = () => {
             <AdminLayout>
               <Routes>
                 <Route path="dashboard" element={<AdminDashboardPage />} />
-
                 <Route
                   path="*"
                   element={<Navigate to="/unauthorized" replace />}
