@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  Home,
-  Users,
   Calendar,
   DollarSign,
   BarChart,
@@ -11,12 +9,23 @@ import {
   LogOut,
   Briefcase,
 } from 'lucide-react';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuItem,
+} from '../ui/sidebar';
 import { NavItem } from './NavItem.tsx';
+import { HomeIcon, MembersIcon } from '@/components/icons';
 
 const adminLinks = [
-  { name: 'Dashboard', href: '/admin/dashboard', icon: Home },
+  { name: 'Dashboard', href: '/admin/dashboard', icon: HomeIcon },
   { name: 'Notificaciones', href: '/admin/notifications', icon: Bell },
-  { name: 'Miembros', href: '/admin/members', icon: Users },
+  { name: 'Miembros', href: '/admin/members', icon: MembersIcon },
   { name: 'Clases', href: '/admin/classes', icon: Calendar },
   { name: 'Pagos', href: '/admin/payments', icon: DollarSign },
   { name: 'Reportes', href: '/admin/reports', icon: BarChart },
@@ -25,21 +34,40 @@ const adminLinks = [
   { name: 'Ajustes', href: '/admin/settings', icon: Settings },
 ];
 
-export const Sidebar: React.FC = () => {
+export const AppSidebar: React.FC = () => {
   return (
-    <div className="hidden lg:flex flex-col w-64 h-full fixed top-0 left-0 pt-6 bg-blue-primary text-white shadow-xl">
-      <div className="px-6 mb-8 text-2xl font-bold text-indigo-400">
-        Novafit34
-      </div>
-      <nav className="flex-1 overflow-y-auto">
-        {adminLinks.map((link) => (
-          <NavItem key={link.name} {...link} />
-        ))}
-      </nav>
-      {/* Opción Salir (Logout) */}
-      <div className="px-4 py-1 border-t border-gray-700">
-        <NavItem name="Salir" href="/login" icon={LogOut} />
-      </div>
-    </div>
+    <Sidebar
+      variant="sidebar"
+      collapsible="offcanvas"
+      className="border-r border-[#21294a]"
+    >
+      <SidebarHeader className="border-b border-[#21294a]">
+        <div className="px-6 py-4">
+          <h2 className="text-2xl font-bold text-white">Novafit34</h2>
+        </div>
+      </SidebarHeader>
+
+      <SidebarContent>
+        <SidebarGroup>
+          <SidebarGroupContent>
+            <SidebarMenu className="">
+              {adminLinks.map((link) => (
+                <SidebarMenuItem key={link.name}>
+                  <NavItem {...link} />
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+      </SidebarContent>
+
+      <SidebarFooter className="border-t border-[#21294a]">
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <NavItem name="Salir" href="/login" icon={LogOut} />
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarFooter>
+    </Sidebar>
   );
 };
