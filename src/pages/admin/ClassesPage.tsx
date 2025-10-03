@@ -19,7 +19,15 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../../components/ui/select';
-// import { cn } from '../../lib/utils';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '../../components/ui/table';
+import { cn } from '../../lib/utils';
 
 export const ClassesPage: React.FC = () => {
   const [activeView, setActiveView] = useState<'semana' | 'lista'>('semana');
@@ -110,6 +118,120 @@ export const ClassesPage: React.FC = () => {
   };
 
   // const currentMonthName = date?.toLocaleString('es-ES', { month: 'long', year: 'numeric' }) || 'Mes Año';
+
+  // Datos de ejemplo para el horario
+  const WEEKLY_SCHEDULE = [
+    {
+      time: '7:00 AM',
+      Lunes: 'Yoga (10/15)',
+      Martes: 'Spinning (18/20)',
+      Miércoles: '',
+      Jueves: 'HIIT (12/15)',
+      Viernes: 'Yoga (5/15)',
+      Sábado: 'Cardio (10/20)',
+      Domingo: '',
+    },
+    {
+      time: '8:00 AM',
+      Lunes: 'Crossfit (15/15)',
+      Martes: '',
+      Miércoles: 'Pilates (8/12)',
+      Jueves: 'Crossfit (10/15)',
+      Viernes: 'Zumba (15/15)',
+      Sábado: 'Yoga (10/15)',
+      Domingo: 'Estiramiento (5/10)',
+    },
+    {
+      time: '9:00 AM',
+      Lunes: '',
+      Martes: 'Boxeo (10/10)',
+      Miércoles: 'Spinning (14/20)',
+      Jueves: '',
+      Viernes: 'algo (8/18)',
+      Sábado: 'HIIT (10/15)',
+      Domingo: 'Spinning (12/20)',
+    },
+    {
+      time: '10:00 AM',
+      Lunes: 'Zumba (12/15)',
+      Martes: 'Pilates (7/12)',
+      Miércoles: '',
+      Jueves: 'Yoga (10/15)',
+      Viernes: 'Pilates (5/12)',
+      Sábado: '',
+      Domingo: '',
+    },
+    {
+      time: '11:00 AM',
+      Lunes: 'Natación (5/10)',
+      Martes: '',
+      Miércoles: 'Crossfit (10/15)',
+      Jueves: 'Boxeo (9/10)',
+      Viernes: 'Natación (7/10)',
+      Sábado: 'Zumba (10/15)',
+      Domingo: 'Crossfit (8/15)',
+    },
+    {
+      time: '12:00 PM',
+      Lunes: '',
+      Martes: 'HIIT (10/15)',
+      Miércoles: 'Boxeo (7/10)',
+      Jueves: '',
+      Viernes: '',
+      Sábado: 'Pilates (8/12)',
+      Domingo: 'Boxeo (5/10)',
+    },
+    {
+      time: '1:00 PM',
+      Lunes: '',
+      Martes: 'HIIT (10/15)',
+      Miércoles: 'Boxeo (7/10)',
+      Jueves: '',
+      Viernes: '',
+      Sábado: 'Pilates (8/12)',
+      Domingo: 'Boxeo (5/10)',
+    },
+    {
+      time: '2:00 PM',
+      Lunes: '',
+      Martes: 'HIIT (10/15)',
+      Miércoles: 'Boxeo (7/10)',
+      Jueves: '',
+      Viernes: '',
+      Sábado: 'Pilates (8/12)',
+      Domingo: 'Boxeo (5/10)',
+    },
+    {
+      time: '3:00 PM',
+      Lunes: '',
+      Martes: 'HIIT (10/15)',
+      Miércoles: 'Boxeo (7/10)',
+      Jueves: '',
+      Viernes: '',
+      Sábado: 'Pilates (8/12)',
+      Domingo: 'Boxeo (5/10)',
+    },
+    {
+      time: '4:00 PM',
+      Lunes: '',
+      Martes: 'HIIT (10/15)',
+      Miércoles: 'Boxeo (7/10)',
+      Jueves: '',
+      Viernes: '',
+      Sábado: 'Pilates (8/12)',
+      Domingo: 'Boxeo (5/10)',
+    },
+    {
+      time: '5:00 PM',
+      Lunes: '',
+      Martes: 'HIIT (10/15)',
+      Miércoles: 'Boxeo (7/10)',
+      Jueves: '',
+      Viernes: '',
+      Sábado: 'Pilates (8/12)',
+      Domingo: 'Boxeo (5/10)',
+    },
+  ];
 
   return (
     <div className="min-h-screen pt-0 p-4 lg:p-8 lg:pt-0">
@@ -414,111 +536,65 @@ export const ClassesPage: React.FC = () => {
           </div>
 
           {/* Tabla de Horario Semanal */}
-          <div className="lg:col-span-2 bg-card p-6 rounded-lg shadow-md">
+          <div className="lg:col-span-2 bg-blue-primary p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold text-white mb-4">
-              Horario de clases semanal
+              Horario de Clases Semanal
             </h2>
             <div className="overflow-x-auto">
-              <table className="min-w-full text-left table-fixed">
-                <thead>
-                  <tr className="border-b border-gray-700">
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400 w-24">
+              <Table className="min-w-full text-left table-fixed">
+                <TableHeader>
+                  <TableRow className="border-gray-700 bg-blue-primary hover:bg-blue-primary">
+                    <TableHead className="w-24 text-sm font-semibold text-gray-400">
                       Hora
-                    </th>
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    </TableHead>
+                    <TableHead className="text-sm font-semibold text-gray-400">
                       Lunes
-                    </th>
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    </TableHead>
+                    <TableHead className="text-sm font-semibold text-gray-400">
                       Martes
-                    </th>
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    </TableHead>
+                    <TableHead className="text-sm font-semibold text-gray-400">
                       Miércoles
-                    </th>
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    </TableHead>
+                    <TableHead className="text-sm font-semibold text-gray-400">
                       Jueves
-                    </th>
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    </TableHead>
+                    <TableHead className="text-sm font-semibold text-gray-400">
                       Viernes
-                    </th>
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    </TableHead>
+                    <TableHead className="text-sm font-semibold text-gray-400">
                       Sábado
-                    </th>
-                    <th className="py-3 px-2 text-sm font-medium text-gray-400">
+                    </TableHead>
+                    <TableHead className="text-sm font-semibold text-gray-400">
                       Domingo
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {/* Ejemplo de filas */}
-                  {[
-                    '8:00 AM',
-                    '9:00 AM',
-                    '10:00 AM',
-                    '11:00 AM',
-                    '12:00 PM',
-                    '1:00 PM',
-                    '2:00 PM',
-                    '3:00 PM',
-                    '4:00 PM',
-                    '5:00 PM',
-                  ].map((time) => (
-                    <tr
-                      key={time}
-                      className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors"
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+
+                <TableBody>
+                  {WEEKLY_SCHEDULE.map((row) => (
+                    <TableRow
+                      key={row.time}
+                      className="border-gray-800 hover:bg-gray-700/30 transition-colors"
                     >
-                      <td className="py-4 px-2 font-medium text-white w-24">
-                        {time}
-                      </td>
-                      {[...Array(7)].map((_, dayIndex) => (
-                        <td key={dayIndex} className="py-4 px-2 text-gray-300">
-                          {time === '8:00 AM' && dayIndex === 0 && (
-                            <div className="text-sm">Yoga (5 plazas)</div>
-                          )}
-                          {time === '8:00 AM' && dayIndex === 1 && (
-                            <div className="text-sm">Algo (2 plazas)</div>
-                          )}
-                          {time === '8:00 AM' && dayIndex === 2 && (
-                            <div className="text-sm">Crossfit (6 plazas)</div>
-                          )}
-                          {time === '8:00 AM' && dayIndex === 3 && (
-                            <div className="text-sm">Crossfit (6 plazas)</div>
-                          )}
-                          {time === '8:00 AM' && dayIndex === 4 && (
-                            <div className="text-sm">Crossfit (6 plazas)</div>
-                          )}
-                          {time === '8:00 AM' && dayIndex === 5 && (
-                            <div className="text-sm">Crossfit (6 plazas)</div>
-                          )}
-                          {time === '8:00 AM' && dayIndex === 6 && (
-                            <div className="text-sm">Crossfit (6 plazas)</div>
-                          )}
-                          {time === '9:00 AM' && dayIndex === 1 && (
-                            <div className="text-sm">Zumba (12 plazas)</div>
-                          )}
-                          {time === '10:00 AM' && dayIndex === 2 && (
-                            <div className="text-sm">Crossfit (6 plazas)</div>
-                          )}
-                          {time === '11:00 AM' && dayIndex === 3 && (
-                            <div className="text-sm">Spinning (10 plazas)</div>
-                          )}
-                          {time === '12:00 PM' && dayIndex === 4 && (
-                            <div className="text-sm">Boxeo (8 plazas)</div>
-                          )}
-                          {time === '1:00 PM' && dayIndex === 5 && (
-                            <div className="text-sm">Pilates (7 plazas)</div>
-                          )}
-                          {time === '2:00 PM' && dayIndex === 6 && (
-                            <div className="text-sm">Yoga (5 plazas)</div>
-                          )}
-                          {time === '3:00 PM' && dayIndex === 0 && (
-                            <div className="text-sm">Crossfit (2 plazas)</div>
-                          )}
-                        </td>
-                      ))}
-                    </tr>
+                      <TableCell className="py-4 px-2 font-medium text-white w-24">
+                        {row.time}
+                      </TableCell>
+
+                      {Object.keys(row)
+                        .filter((key) => key !== 'time')
+                        .map((day) => (
+                          <TableCell
+                            key={day}
+                            className="py-4 px-1 text-gray-300"
+                          >
+                            <ClassCell content={row[day as keyof typeof row]} />
+                          </TableCell>
+                        ))}
+                    </TableRow>
                   ))}
-                </tbody>
-              </table>
+                </TableBody>
+              </Table>
             </div>
           </div>
         </div>
@@ -535,4 +611,14 @@ export const ClassesPage: React.FC = () => {
       )}
     </div>
   );
+};
+
+interface ClassCellProps {
+  content: string;
+}
+
+const ClassCell: React.FC<ClassCellProps> = ({ content }) => {
+  if (!content) return null;
+
+  return <div className={cn('text-sm font-medium p-1')}>{content}</div>;
 };
