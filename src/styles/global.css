@@ -1,14 +1,17 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '@fontsource-variable/inter';
 
 @custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-bg-primary: var(--bg-primary);
   --color-blue-primary: var(--blue-primary);
+  --font-family-inter: var(--font-family-inter);
 }
 
 :root {
+  --font-family-inter: 'Inter Variable', sans-serif;
   --bg-primary: #0f1224;
   --blue-primary: #21294a;
   --radius: 0.625rem;
@@ -153,6 +156,6 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-family-inter;
   }
 }
