@@ -5,6 +5,7 @@ import { LoginPage } from '../pages/auth/LoginPage.tsx';
 import { RegisterPage } from '../pages/auth/RegisterPage.tsx';
 import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage.tsx';
 import { ClassesPage } from '../pages/admin/ClassesPage.tsx';
+import { InventoryPage } from '../pages/admin/InventoryPage.tsx';
 import { MembersPage } from '../pages/admin/MembersPage.tsx';
 import { PaymentsPage } from '../pages/admin/PaymentsPage.tsx';
 import { useAuth } from '../hooks/UseAuth.tsx';
@@ -47,6 +48,7 @@ export const AppRoutes = () => {
               <Routes>
                 <Route path="dashboard" element={<AdminDashboardPage />} />
                 <Route path="classes" element={<ClassesPage />} />
+                <Route path="inventory" element={<InventoryPage />} />
                 <Route path="members" element={<MembersPage />} />
                 <Route path="payments" element={<PaymentsPage />} />
 
