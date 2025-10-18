@@ -6,6 +6,8 @@ import { RegisterPage } from '../pages/auth/RegisterPage.tsx';
 import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage.tsx';
 import { ClassesPage } from '../pages/admin/ClassesPage.tsx';
 import { InventoryPage } from '../pages/admin/InventoryPage.tsx';
+import { MembersPage } from '../pages/admin/MembersPage.tsx';
+import { PaymentsPage } from '../pages/admin/PaymentsPage.tsx';
 import { useAuth } from '../hooks/UseAuth.tsx';
 
 const PrivateRoute: React.FC<{
@@ -31,6 +33,7 @@ const PrivateRoute: React.FC<{
 export const AppRoutes = () => {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to="/login" replace />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
       {/* ruta para recuperación */}
@@ -46,6 +49,8 @@ export const AppRoutes = () => {
                 <Route path="dashboard" element={<AdminDashboardPage />} />
                 <Route path="classes" element={<ClassesPage />} />
                 <Route path="inventory" element={<InventoryPage />} />
+                <Route path="members" element={<MembersPage />} />
+                <Route path="payments" element={<PaymentsPage />} />
 
                 <Route
                   path="*"
