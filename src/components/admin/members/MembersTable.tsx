@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Table,
   TableBody,
@@ -13,7 +14,7 @@ import type {
   Member,
   MemberPlan,
   MemberStatus,
-} from '../../../types/member.d.ts';
+} from '../../../types/member.ts';
 import { cn } from '../../../lib/utils';
 
 interface MembersTableProps {
@@ -67,9 +68,14 @@ export const MembersTable: React.FC<MembersTableProps> = ({
   onEditMember,
 }) => {
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const toggleExpand = (id: string) => {
     setExpandedId(expandedId === id ? null : id);
+  };
+
+  const handleViewProfile = (member: Member) => {
+    navigate(`/admin/members/${member.id}`, { state: { member } });
   };
 
   // --- VISTA DESKTOP ---
@@ -102,7 +108,8 @@ export const MembersTable: React.FC<MembersTableProps> = ({
           {filteredMembers.map((member) => (
             <TableRow
               key={member.id}
-              className="border-gray-800 hover:bg-gray-700/30 transition-colors"
+              className="border-gray-800 hover:bg-gray-700/30 transition-colors cursor-pointer"
+              onClick={() => handleViewProfile(member)}
             >
               <TableCell className="py-4 px-2 font-medium text-white">
                 {member.nombre}
@@ -119,7 +126,10 @@ export const MembersTable: React.FC<MembersTableProps> = ({
               <TableCell className="py-4 px-2">
                 <MemberTag type="status" value={member.estado} />
               </TableCell>
-              <TableCell className="py-4 px-2">
+              <TableCell
+                className="py-4 px-2"
+                onClick={(e) => e.stopPropagation()}
+              >
                 <Button
                   variant="ghost"
                   size="icon"
