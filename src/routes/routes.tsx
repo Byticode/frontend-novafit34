@@ -10,6 +10,7 @@ import { MembersPage } from '../pages/admin/MembersPage.tsx';
 import { MemberProfilePage } from '../pages/admin/MemberProfilePage.tsx';
 import { PaymentsPage } from '../pages/admin/PaymentsPage.tsx';
 import { SettingsPage } from '../pages/admin/SettingsPage.tsx';
+import { SecurityPage } from '../pages/admin/SecurityPage.tsx';
 import { useAuth } from '../hooks/UseAuth.tsx';
 
 const PrivateRoute: React.FC<{
@@ -77,10 +78,7 @@ export const AppRoutes = () => {
                   path="settings/integrations"
                   element={<PlaceholderPage title="Integraciones" />}
                 />
-                <Route
-                  path="settings/security"
-                  element={<PlaceholderPage title="Seguridad" />}
-                />
+                <Route path="settings/security" element={<SecurityPage />} />
 
                 <Route
                   path="*"
