@@ -9,6 +9,7 @@ import { InventoryPage } from '../pages/admin/InventoryPage.tsx';
 import { MembersPage } from '../pages/admin/MembersPage.tsx';
 import { MemberProfilePage } from '../pages/admin/MemberProfilePage.tsx';
 import { PaymentsPage } from '../pages/admin/PaymentsPage.tsx';
+import { SettingsPage } from '../pages/admin/SettingsPage.tsx';
 import { useAuth } from '../hooks/UseAuth.tsx';
 
 const PrivateRoute: React.FC<{
@@ -30,6 +31,13 @@ const PrivateRoute: React.FC<{
 
   return children;
 };
+
+const PlaceholderPage = ({ title }: { title: string }) => (
+  <div className="p-8 text-white">
+    <h1 className="text-3xl font-bold">Página de {title}</h1>
+    <p className="mt-2 text-gray-400">Aun esta en desarrollo... |-/</p>
+  </div>
+);
 
 export const AppRoutes = () => {
   return (
@@ -56,6 +64,23 @@ export const AppRoutes = () => {
                   element={<MemberProfilePage />}
                 />
                 <Route path="payments" element={<PaymentsPage />} />
+                <Route path="settings" element={<SettingsPage />} />
+                <Route
+                  path="settings/profile"
+                  element={<PlaceholderPage title="Perfil del GYM" />}
+                />
+                <Route
+                  path="settings/users"
+                  element={<PlaceholderPage title="Usuarios y Roles" />}
+                />
+                <Route
+                  path="settings/integrations"
+                  element={<PlaceholderPage title="Integraciones" />}
+                />
+                <Route
+                  path="settings/security"
+                  element={<PlaceholderPage title="Seguridad" />}
+                />
 
                 <Route
                   path="*"
