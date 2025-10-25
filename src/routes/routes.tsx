@@ -11,6 +11,7 @@ import { MemberProfilePage } from '../pages/admin/MemberProfilePage.tsx';
 import { PaymentsPage } from '../pages/admin/PaymentsPage.tsx';
 import { SettingsPage } from '../pages/admin/SettingsPage.tsx';
 import { SecurityPage } from '../pages/admin/SecurityPage.tsx';
+import { GymProfilePage } from '../pages/admin/GymProfilePage.jsx';
 import { useAuth } from '../hooks/UseAuth.tsx';
 
 const PrivateRoute: React.FC<{
@@ -66,10 +67,7 @@ export const AppRoutes = () => {
                 />
                 <Route path="payments" element={<PaymentsPage />} />
                 <Route path="settings" element={<SettingsPage />} />
-                <Route
-                  path="settings/profile"
-                  element={<PlaceholderPage title="Perfil del GYM" />}
-                />
+                <Route path="settings/profile" element={<GymProfilePage />} />
                 <Route
                   path="settings/users"
                   element={<PlaceholderPage title="Usuarios y Roles" />}
