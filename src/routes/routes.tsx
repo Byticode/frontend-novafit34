@@ -13,28 +13,40 @@ import { SettingsPage } from '../pages/admin/SettingsPage.tsx';
 import { SecurityPage } from '../pages/admin/SecurityPage.tsx';
 import { GymProfilePage } from '../pages/admin/GymProfilePage.jsx';
 import { ReportsPage } from '../pages/admin/ReportsPage.tsx';
-import { useAuth } from '../hooks/UseConvexAuth.tsx';
+import { useConvexAuth } from 'convex/react';
 
 const PrivateRoute: React.FC<{
   children: JSX.Element;
   role: 'admin' | 'coach' | 'client';
 }> = ({ children, role }) => {
-  const { isLoggedIn, userRole } = useAuth();
+  const { isAuthenticated, isLoading } = useConvexAuth();
   const location = useLocation();
 
-  // No need for loading state with local auth
+  // Show loading while checking authentication
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-bg-primary flex flex-col items-center justify-center p-4">
+        <div className="text-white text-center">
+          <h2 className="text-2xl font-bold mb-4">Cargando...</h2>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto"></div>
+        </div>
+      </div>
+    );
+  }
 
-  if (!isLoggedIn) {
+  if (!isAuthenticated) {
     // Redirigir si no está logeado
     return <Navigate to="/sign-in" state={{ from: location }} replace />;
   }
 
-  if (userRole !== role) {
-    // Redirigir si no tiene el rol correcto
-    return <Navigate to="/unauthorized" replace />;
+  // For now, assume all authenticated users are admin
+  // TODO: Implement proper role checking when roles are added to schema
+  if (role === 'admin') {
+    return children;
   }
 
-  return children;
+  // Redirigir si no tiene el rol correcto
+  return <Navigate to="/unauthorized" replace />;
 };
 
 const PlaceholderPage = ({ title }: { title: string }) => (

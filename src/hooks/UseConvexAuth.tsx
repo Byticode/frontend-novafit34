@@ -1,95 +1,60 @@
-import { useState, useEffect } from 'react';
+import { useAuthActions } from '@convex-dev/auth/react';
+import { useConvexAuth } from 'convex/react';
+import { useQuery } from 'convex/react';
+import { api } from '../../convex/_generated/api';
+import { useNavigate } from 'react-router-dom';
 
 type Role = 'admin' | 'coach' | 'client' | null;
 
-interface User {
-  id: string;
-  email: string;
-  name?: string;
-  role: Role;
-}
-
 interface AuthContextType {
   userRole: Role;
-  login: (role: Role) => void;
+  login: () => void;
   logout: () => void;
   isLoggedIn: boolean;
-  user: User | null;
+  user: unknown;
   signInWithPassword: (email: string, password: string) => Promise<void>;
   signUpWithPassword: (email: string, password: string) => Promise<void>;
 }
 
 export const useAuth = (): AuthContextType => {
-  const [user, setUser] = useState<User | null>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const { isAuthenticated, isLoading } = useConvexAuth();
+  const { signIn, signOut } = useAuthActions();
+  const navigate = useNavigate();
 
-  // Check for existing session on mount
-  useEffect(() => {
-    const savedUser = localStorage.getItem('auth_user');
-    if (savedUser) {
-      try {
-        const parsedUser = JSON.parse(savedUser);
-        setUser(parsedUser);
-        setIsLoggedIn(true);
-      } catch (error) {
-        console.error('Error parsing saved user:', error);
-        localStorage.removeItem('auth_user');
-      }
-    }
-  }, []);
+  // Get current user data
+  const user = useQuery(api.users.currentUser);
 
-  const userRole: Role = user?.role || null;
+  const isLoggedIn = isAuthenticated && !isLoading;
+  const userRole: Role = 'admin'; // Default to admin for now, since we don't have role in schema
 
-  const login = (role: Role) => {
-    // Create a mock user for now
-    const mockUser: User = {
-      id: '1',
-      email: 'admin@novafit34.com',
-      name: 'Admin User',
-      role: role || 'admin',
-    };
-    setUser(mockUser);
-    setIsLoggedIn(true);
-    localStorage.setItem('auth_user', JSON.stringify(mockUser));
+  const login = () => {
+    // This is handled by signInWithPassword
   };
 
   const logout = async () => {
-    setUser(null);
-    setIsLoggedIn(false);
-    localStorage.removeItem('auth_user');
+    try {
+      await signOut();
+      navigate('/sign-in', { replace: true });
+    } catch (error) {
+      console.error('Logout error:', error);
+    }
   };
 
   const signInWithPassword = async (email: string, password: string) => {
-    // Mock authentication - in real app, this would call an API
-    if (email && password) {
-      const mockUser: User = {
-        id: '1',
-        email: email,
-        name: 'User',
-        role: 'admin',
-      };
-      setUser(mockUser);
-      setIsLoggedIn(true);
-      localStorage.setItem('auth_user', JSON.stringify(mockUser));
-    } else {
-      throw new Error('Invalid credentials');
+    try {
+      await signIn('password', { email, password });
+    } catch (error) {
+      console.error('Sign in error:', error);
+      throw new Error('Credenciales inválidas');
     }
   };
 
   const signUpWithPassword = async (email: string, password: string) => {
-    // Mock registration - in real app, this would call an API
-    if (email && password) {
-      const mockUser: User = {
-        id: Date.now().toString(),
-        email: email,
-        name: 'New User',
-        role: 'admin',
-      };
-      setUser(mockUser);
-      setIsLoggedIn(true);
-      localStorage.setItem('auth_user', JSON.stringify(mockUser));
-    } else {
-      throw new Error('Invalid registration data');
+    try {
+      await signIn('password', { email, password, flow: 'signUp' });
+    } catch (error) {
+      console.error('Sign up error:', error);
+      throw new Error('Error al crear la cuenta');
     }
   };
 
@@ -98,7 +63,7 @@ export const useAuth = (): AuthContextType => {
     login,
     logout,
     isLoggedIn,
-    user,
+    user: isLoading ? undefined : user,
     signInWithPassword,
     signUpWithPassword,
   };
