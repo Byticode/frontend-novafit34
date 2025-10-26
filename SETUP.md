@@ -122,9 +122,30 @@ cat .env.local
 - Real-time data updates via Convex
 - Session persistence across browser refreshes
 
+## 🚀 Deployment
+
+### Netlify
+The project includes `netlify.toml` and `public/_redirects` for automatic deployment:
+```bash
+# Build command: npm run build
+# Publish directory: dist
+```
+
+### Vercel
+The project includes `vercel.json` for automatic deployment:
+```bash
+# Build command: npm run build
+# Output directory: dist
+```
+
+### Other Platforms
+For Apache servers, `.htaccess` is included in the `public` folder.
+
+**Important**: All deployment platforms need SPA redirect configuration to handle React Router routes properly.
+
 ## 🔗 Useful Links
 
-- [Convex Documentation](https://docs.convex.dev)
-- [Convex Auth Guide](https://docs.convex.dev/auth)
+- [Vite Deployment Guide](https://vitejs.dev/guide/static-deploy.html)
+- [React Router Deployment](https://reactrouter.com/en/main/guides/deploying)
 - [TailwindCSS Docs](https://tailwindcss.com/docs)
-- [React Router Docs](https://reactrouter.com)
+- [Netlify SPA Redirects](https://docs.netlify.com/routing/redirects/)
