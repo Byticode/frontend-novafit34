@@ -144,7 +144,7 @@ export const LoginPage: React.FC = () => {
           <p className="text-sm text-gray-400">
             ¿No tienes una cuenta?{' '}
             <a
-              href="/register"
+              href="/sign-up"
               className="text-indigo-400 hover:text-indigo-500 font-bold"
             >
               Regístrate aquí

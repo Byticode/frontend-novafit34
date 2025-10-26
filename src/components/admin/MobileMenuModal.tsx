@@ -13,6 +13,8 @@ import {
   X,
 } from 'lucide-react';
 import { NavItem } from './NavItem';
+import { useAuth } from '../../hooks/UseConvexAuth';
+import { useNavigate } from 'react-router-dom';
 
 interface MobileMenuModalProps {
   isOpen: boolean;
@@ -35,6 +37,19 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
   isOpen,
   onClose,
 }) => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      onClose(); // Cerrar el modal
+      navigate('/sign-in', { replace: true });
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  };
+
   if (!isOpen) return null; // No renderizar si no está abierto
 
   return (
@@ -65,8 +80,14 @@ export const MobileMenuModal: React.FC<MobileMenuModalProps> = ({
         </nav>
 
         {/* Opción Salir (Logout) */}
-        <div className="p-4 border-t border-gray-700 mt-4" onClick={onClose}>
-          <NavItem name="Salir" href="/login" icon={LogOut} />
+        <div className="p-4 border-t border-gray-700 mt-4">
+          <button
+            onClick={handleLogout}
+            className="flex items-center w-full px-4 py-3 text-gray-300 hover:text-white hover:bg-indigo-600/20 rounded-lg transition-colors duration-200"
+          >
+            <LogOut className="w-5 h-5 mr-3" />
+            <span className="font-medium">Salir</span>
+          </button>
         </div>
       </div>
     </div>

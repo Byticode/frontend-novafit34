@@ -21,6 +21,8 @@ import {
 } from '../ui/sidebar';
 import { NavItem } from './NavItem.tsx';
 import { HomeIcon, MembersIcon } from '@/components/icons';
+import { useAuth } from '../../hooks/UseConvexAuth';
+import { useNavigate } from 'react-router-dom';
 
 const adminLinks = [
   { name: 'Dashboard', href: '/admin/dashboard', icon: HomeIcon },
@@ -35,6 +37,18 @@ const adminLinks = [
 ];
 
 export const AppSidebar: React.FC = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      navigate('/sign-in', { replace: true });
+    } catch (error) {
+      console.error('Error during logout:', error);
+    }
+  };
+
   return (
     <Sidebar
       variant="sidebar"
@@ -64,7 +78,13 @@ export const AppSidebar: React.FC = () => {
       <SidebarFooter className="border-t border-[#21294a]">
         <SidebarMenu>
           <SidebarMenuItem>
-            <NavItem name="Salir" href="/login" icon={LogOut} />
+            <button
+              onClick={handleLogout}
+              className="flex items-center w-full px-4 py-3 text-gray-300 hover:text-white hover:bg-indigo-600/20 rounded-lg transition-colors duration-200"
+            >
+              <LogOut className="w-5 h-5 mr-3" />
+              <span className="font-medium">Salir</span>
+            </button>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarFooter>

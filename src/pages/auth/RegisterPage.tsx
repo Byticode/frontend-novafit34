@@ -183,7 +183,7 @@ export const RegisterPage: React.FC = () => {
           <p className="text-sm text-gray-400">
             ¿Ya tienes una cuenta?{' '}
             <Link
-              to="/login"
+              to="/sign-in"
               className="text-indigo-400 hover:text-indigo-500 font-bold"
             >
               Inicia sesión
