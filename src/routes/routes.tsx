@@ -13,7 +13,7 @@ import { SettingsPage } from '../pages/admin/SettingsPage.tsx';
 import { SecurityPage } from '../pages/admin/SecurityPage.tsx';
 import { GymProfilePage } from '../pages/admin/GymProfilePage.jsx';
 import { ReportsPage } from '../pages/admin/ReportsPage.tsx';
-import { useAuth } from '../hooks/UseAuth.tsx';
+import { useAuth } from '../hooks/UseConvexAuth.tsx';
 
 const PrivateRoute: React.FC<{
   children: JSX.Element;
@@ -22,9 +22,11 @@ const PrivateRoute: React.FC<{
   const { isLoggedIn, userRole } = useAuth();
   const location = useLocation();
 
+  // No need for loading state with local auth
+
   if (!isLoggedIn) {
     // Redirigir si no está logeado
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return <Navigate to="/sign-in" state={{ from: location }} replace />;
   }
 
   if (userRole !== role) {
@@ -45,9 +47,9 @@ const PlaceholderPage = ({ title }: { title: string }) => (
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/login" replace />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+      <Route path="/" element={<Navigate to="/sign-in" replace />} />
+      <Route path="/sign-in" element={<LoginPage />} />
+      <Route path="/sign-up" element={<RegisterPage />} />
       {/* ruta para recuperación */}
 
       {/* Rutas Privadas del Administrador */}
