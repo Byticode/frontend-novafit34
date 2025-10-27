@@ -42,7 +42,7 @@ export const useAuth = (): AuthContextType => {
 
   const signInWithPassword = async (email: string, password: string) => {
     try {
-      await signIn('password', { email, password });
+      await signIn('password', { email, password, flow: 'signIn' });
     } catch (error) {
       console.error('Sign in error:', error);
       throw new Error('Credenciales inválidas');

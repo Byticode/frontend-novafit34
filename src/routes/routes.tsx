@@ -1,8 +1,8 @@
 import React, { type JSX } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AdminLayout } from '../layouts/AdminLayout.tsx';
-import { LoginPage } from '../pages/auth/LoginPage.tsx';
-import { RegisterPage } from '../pages/auth/RegisterPage.tsx';
+import { ConvexSignIn } from '../components/auth/ConvexSignIn.tsx';
+import { ConvexSignUp } from '../components/auth/ConvexSignUp.tsx';
 import { AdminDashboardPage } from '../pages/admin/AdminDashboardPage.tsx';
 import { ClassesPage } from '../pages/admin/ClassesPage.tsx';
 import { InventoryPage } from '../pages/admin/InventoryPage.tsx';
@@ -60,8 +60,8 @@ export const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/sign-in" replace />} />
-      <Route path="/sign-in" element={<LoginPage />} />
-      <Route path="/sign-up" element={<RegisterPage />} />
+      <Route path="/sign-in" element={<ConvexSignIn />} />
+      <Route path="/sign-up" element={<ConvexSignUp />} />
       {/* ruta para recuperación */}
 
       {/* Rutas Privadas del Administrador */}
