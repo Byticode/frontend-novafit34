@@ -38,7 +38,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
 
         {/* Contenido Principal */}
         <main className="pb-20 lg:pb-4 p-4 lg:p-8 bg-[#0F1224]">
-          <div className="flex items-center gap-2 mb-4">
+          <div className="flex items-center gap-2 mb-0">
             <SidebarTrigger />
           </div>
           {children}
