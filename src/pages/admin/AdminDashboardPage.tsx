@@ -1,126 +1,191 @@
 import React from 'react';
 import { UserPlus, CalendarCheck, DollarSign } from 'lucide-react';
-import { DashboardCard } from '../../components/admin/dashboard/DashboardCard.tsx';
-import { ActivityItem } from '../../components/admin/dashboard/ActivityItem.tsx';
+import { DashboardCard } from '../../components/admin/dashboard/DashboardCard';
+import { ActivityItem } from '../../components/admin/dashboard/ActivityItem';
+import { PerformanceOverview } from '../../components/admin/dashboard/PerformanceOverview';
+import { TasksSummary } from '../../components/admin/dashboard/TasksSummary';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '../../components/ui/table';
+import { Card } from '../../components/ui/card';
+// import { title } from 'process';
+
+// Componente de Actividad Reciente
+const ActivityList: React.FC = () => (
+  <div className="bg-primary border-none mb-12">
+    <h2 className="text-2xl font-bold text-white mb-6">Actividad reciente</h2>
+    <div className="flex flex-col gap-4">
+      <ActivityItem
+        icon={UserPlus}
+        title="Nuevo miembro registrado"
+        description="Emmanuel C. se unió a Novafit34"
+      />
+      <ActivityItem
+        icon={CalendarCheck}
+        title="Clase de yoga reservada"
+        description="Dua Lipa reservó la clase de yoga"
+      />
+      <ActivityItem
+        icon={DollarSign}
+        title="Pago recibido"
+        description="Se recibió un pago de $100"
+      />
+    </div>
+  </div>
+);
+
+// Componente de Próximas Clases
+const UpcomingClasses: React.FC = () => (
+  <div className="space-y-4">
+    <h2 className="text-2xl font-bold text-white mb-4 pb-0">Próximas clases</h2>
+    <Card className="bg-card border border-gray-800 shadow-md p-6">
+      <div className="overflow-x-auto">
+        <Table>
+          <TableHeader>
+            <TableRow className="border-gray-700 bg-card hover:bg-card">
+              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+                Clase
+              </TableHead>
+              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+                Instructor
+              </TableHead>
+              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+                Hora
+              </TableHead>
+              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+                Miembros inscritos
+              </TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            <TableRow className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors">
+              <TableCell className="py-4 px-2 font-medium text-white">
+                Yoga
+              </TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">
+                Emily S.
+              </TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">8:00 AM</TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">
+                <div className="flex justify-center lg:justify-start items-center">
+                  <span>15</span>
+                  <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
+                    <div
+                      className="bg-indigo-500 h-full rounded-full"
+                      style={{ width: '75%' }}
+                    ></div>
+                  </div>
+                </div>
+              </TableCell>
+            </TableRow>
+            <TableRow className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors">
+              <TableCell className="py-4 px-2 font-medium text-white">
+                Spin
+              </TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">Mark T.</TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">9:00 AM</TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">
+                <div className="flex justify-center lg:justify-start items-center">
+                  <span>18</span>
+                  <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
+                    <div
+                      className="bg-indigo-500 h-full rounded-full"
+                      style={{ width: '90%' }}
+                    ></div>
+                  </div>
+                </div>
+              </TableCell>
+            </TableRow>
+            <TableRow className="hover:bg-gray-700/30 transition-colors">
+              <TableCell className="py-4 px-2 font-medium text-white">
+                Pilates
+              </TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">
+                Laura K.
+              </TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">
+                10:00 AM
+              </TableCell>
+              <TableCell className="py-4 px-2 text-gray-300">
+                <div className="flex justify-center lg:justify-start items-center">
+                  <span>12</span>
+                  <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
+                    <div
+                      className="bg-indigo-500 h-full rounded-full"
+                      style={{ width: '60%' }}
+                    ></div>
+                  </div>
+                </div>
+              </TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </div>
+    </Card>
+  </div>
+);
 
 export const AdminDashboardPage: React.FC = () => {
-  return (
-    <div className="min-h-screen p-2 lg:p-8">
-      {/* En mobile, el título está en el header del AdminLayout */}
-      <h1 className="text-3xl lg:text-4xl font-bold text-white mb-6 lg:mb-8 hidden lg:block">
-        Dashboard
-      </h1>
+  // Datos simulados para las tarjetas
+  const dashboardData = {
+    activeMembers: 250,
+    activeMembersPercent: 10,
+    recentRevenue: 5500,
+    recentRevenuePercent: 8,
+    classesToday: 15,
+    classesTodayPercent: 5,
+    pendingTasks: 8,
+    pendingTasksPercent: -2,
+  };
 
-      {/* Grid de Métricas Principales */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-        <DashboardCard title="Miembros activos" value="250" />
-        <DashboardCard title="Ingresos totales" value="$15,000" />
-        <DashboardCard title="Clases reservadas" value="120" />
+  return (
+    <div className="min-h-screen p-4 lg:p-8 space-y-8">
+      <h1 className="text-3xl lg:text-4xl font-bold text-white">Dashboard</h1>
+
+      {/* Tarjetas de Visión General (Overview Cards con porcentaje) */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-14">
+        <DashboardCard
+          title="Miembros activos"
+          value={dashboardData.activeMembers.toString()}
+          percentage={dashboardData.activeMembersPercent}
+        />
+        <DashboardCard
+          title="Clases Hoy"
+          value={dashboardData.classesToday.toString()}
+          percentage={dashboardData.classesTodayPercent}
+        />
+        <DashboardCard
+          title="Ingresos Recientes"
+          value={`$${dashboardData.recentRevenue.toLocaleString()}`}
+          percentage={dashboardData.recentRevenuePercent}
+        />
+        <DashboardCard
+          title="Tareas pendientes"
+          value={dashboardData.pendingTasks.toString()}
+          percentage={dashboardData.pendingTasksPercent}
+        />
       </div>
 
-      <div className="grid grid-cols-1 gap-6">
-        {/* Sección de Actividad Reciente */}
-        <div className="p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-white mb-8">
-            Actividad reciente
-          </h2>
-          <div className="flex flex-col gap-4">
-            <ActivityItem
-              icon={UserPlus}
-              title="Nuevo miembro registrado"
-              description="Emmanuel C. se unió a Novafit34"
-            />
-            <ActivityItem
-              icon={CalendarCheck}
-              title="Clase de yoga reservada"
-              description="Dua Lipa reservó la clase de yoga"
-            />
-            <ActivityItem
-              icon={DollarSign}
-              title="Pago recibido"
-              description="Se recibió un pago de $100"
-            />
-          </div>
+      {/* Resumen de Rendimiento  */}
+      <PerformanceOverview />
+
+      <div className="grid grid-cols-1 gap-8">
+        {/* Actividad Reciente (Columna 1) */}
+        <div className="lg:col-span-1">
+          <ActivityList />
         </div>
 
-        {/* Sección de Próximas Clases */}
-        <div className="bg-blue-primary/60 p-4 md:p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-white mb-6">
-            Próximas clases
-          </h2>
-          <div className="overflow-x-auto">
-            <table className="min-w-full text-left">
-              <thead>
-                <tr className="border-b border-gray-700">
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
-                    Clase
-                  </th>
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
-                    Instructor
-                  </th>
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
-                    Hora
-                  </th>
-                  <th className="py-3 px-2 text-sm font-medium text-gray-400">
-                    Miembros inscritos
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* Fila 1 */}
-                <tr className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors">
-                  <td className="py-4 px-2 font-medium text-white">Yoga</td>
-                  <td className="py-4 px-2 text-gray-300">Emily S.</td>
-                  <td className="py-4 px-2 text-gray-300">8:00 AM</td>
-                  <td className="py-4 px-2 text-gray-300">
-                    <div className="flex justify-center lg:justify-start items-center">
-                      <span>15</span>
-                      <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
-                        <div
-                          className="bg-indigo-500 h-full rounded-full"
-                          style={{ width: '75%' }}
-                        ></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                {/* Fila 2 */}
-                <tr className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors">
-                  <td className="py-4 px-2 font-medium text-white">Spin</td>
-                  <td className="py-4 px-2 text-gray-300">Mark T.</td>
-                  <td className="py-4 px-2 text-gray-300">9:00 AM</td>
-                  <td className="py-4 px-2 text-gray-300">
-                    <div className="flex justify-center lg:justify-start items-center">
-                      <span>18</span>
-                      <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
-                        <div
-                          className="bg-indigo-500 h-full rounded-full"
-                          style={{ width: '90%' }}
-                        ></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-                {/* Fila 3 */}
-                <tr className="hover:bg-gray-700/30 transition-colors">
-                  <td className="py-4 px-2 font-medium text-white">Pilates</td>
-                  <td className="py-4 px-2 text-gray-300">Laura K.</td>
-                  <td className="py-4 px-2 text-gray-300">10:00 AM</td>
-                  <td className="py-4 px-2 text-gray-300">
-                    <div className="flex justify-center lg:justify-start items-center">
-                      <span>12</span>
-                      <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
-                        <div
-                          className="bg-indigo-500 h-full rounded-full"
-                          style={{ width: '60%' }}
-                        ></div>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+        <div className="lg:col-span-2 space-y-8">
+          {/* Resumen de Tareas (Tasks Summary) */}
+          <TasksSummary />
+
+          {/* Próximas Clases */}
+          <UpcomingClasses />
         </div>
       </div>
     </div>
