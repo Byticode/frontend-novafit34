@@ -48,6 +48,13 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+.focus-none {
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
 /* Scrollbar personalizada */
 ::-webkit-scrollbar {
   width: 6px;

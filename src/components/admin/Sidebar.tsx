@@ -8,6 +8,7 @@ import {
   Settings,
   LogOut,
   Briefcase,
+  ListTodo,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -33,6 +34,7 @@ const adminLinks = [
   { name: 'Reportes', href: '/admin/reports', icon: BarChart },
   { name: 'Empleados', href: '/admin/employees', icon: Briefcase },
   { name: 'Inventario', href: '/admin/inventory', icon: ShoppingBag },
+  { name: 'Tareas y Notas', href: '/admin/tasks', icon: ListTodo },
   { name: 'Ajustes', href: '/admin/settings', icon: Settings },
 ];
 
