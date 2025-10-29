@@ -10,6 +10,7 @@ import { MembersPage } from '../pages/admin/MembersPage.tsx';
 import { MemberProfilePage } from '../pages/admin/MemberProfilePage.tsx';
 import { PaymentsPage } from '../pages/admin/PaymentsPage.tsx';
 import { SettingsPage } from '../pages/admin/SettingsPage.tsx';
+import { ManageUsersPage } from '../pages/admin/ManageUsersPage.tsx';
 import { SecurityPage } from '../pages/admin/SecurityPage.tsx';
 import { GymProfilePage } from '../pages/admin/GymProfilePage.jsx';
 import { ReportsPage } from '../pages/admin/ReportsPage.tsx';
@@ -84,10 +85,7 @@ export const AppRoutes = () => {
                 <Route path="reports" element={<ReportsPage />} />
                 <Route path="settings" element={<SettingsPage />} />
                 <Route path="settings/profile" element={<GymProfilePage />} />
-                <Route
-                  path="settings/users"
-                  element={<PlaceholderPage title="Usuarios y Roles" />}
-                />
+                <Route path="settings/users" element={<ManageUsersPage />} />
                 <Route
                   path="settings/integrations"
                   element={<PlaceholderPage title="Integraciones" />}
