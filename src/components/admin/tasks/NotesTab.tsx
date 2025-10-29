@@ -85,7 +85,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
               variant="ghost"
               size="sm"
               onClick={() => deleteNote(note.id)}
-              className="text-red-500 hover:bg-red-400/20 hover:text-red-400 cursor-pointer"
+              className="absolute top-10 text-red-500 hover:bg-red-400/20 hover:text-red-400 cursor-pointer"
             >
               <Trash2 className="w-4 h-4 mr-2" /> Eliminar Nota
             </Button>
