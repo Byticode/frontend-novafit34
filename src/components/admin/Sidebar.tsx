@@ -9,6 +9,7 @@ import {
   LogOut,
   Briefcase,
   ListTodo,
+  House,
 } from 'lucide-react';
 import {
   Sidebar,
@@ -21,12 +22,12 @@ import {
   SidebarMenuItem,
 } from '../ui/sidebar';
 import { NavItem } from './NavItem.tsx';
-import { HomeIcon, MembersIcon } from '@/components/icons';
+import { MembersIcon } from '@/components/icons';
 import { useAuth } from '../../hooks/UseConvexAuth';
 import { useNavigate } from 'react-router-dom';
 
 const adminLinks = [
-  { name: 'Dashboard', href: '/admin/dashboard', icon: HomeIcon },
+  { name: 'Dashboard', href: '/admin/dashboard', icon: House },
   { name: 'Notificaciones', href: '/admin/notifications', icon: Bell },
   { name: 'Miembros', href: '/admin/members', icon: MembersIcon },
   { name: 'Clases', href: '/admin/classes', icon: Calendar },
