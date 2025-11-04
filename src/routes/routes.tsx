@@ -15,6 +15,7 @@ import { SecurityPage } from '../pages/admin/SecurityPage.tsx';
 import { GymProfilePage } from '../pages/admin/GymProfilePage.jsx';
 import { ReportsPage } from '../pages/admin/ReportsPage.tsx';
 import { TasksPage } from '../pages/admin/TasksPage.tsx';
+import { EmployeesPage } from '../pages/admin/EmployeesPage.tsx';
 import { useConvexAuth } from 'convex/react';
 
 const PrivateRoute: React.FC<{
@@ -84,6 +85,7 @@ export const AppRoutes = () => {
                 />
                 <Route path="payments" element={<PaymentsPage />} />
                 <Route path="reports" element={<ReportsPage />} />
+                <Route path="employees" element={<EmployeesPage />} />
                 <Route path="tasks" element={<TasksPage />} />
                 <Route path="settings" element={<SettingsPage />} />
                 <Route path="settings/profile" element={<GymProfilePage />} />
