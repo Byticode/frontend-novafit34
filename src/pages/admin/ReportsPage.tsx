@@ -33,7 +33,7 @@ export const ReportsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen p-4 lg:p-8 space-y-8">
-      <h1 className="text-3xl lg:text-4xl font-bold text-white">
+      <h1 className="text-3xl lg:text-4xl font-bold text-headline">
         Reportes de Ingresos
       </h1>
 
@@ -43,10 +43,10 @@ export const ReportsPage: React.FC = () => {
           value={incomeType}
           onValueChange={(value: IncomeTypeFilter) => setIncomeType(value)}
         >
-          <SelectTrigger className="w-full sm:w-[200px] bg-card text-white border-gray-700">
+          <SelectTrigger className="w-full sm:w-[200px] bg-card-background text-headline border-secondary/30">
             <SelectValue placeholder="Tipo de Ingreso" />
           </SelectTrigger>
-          <SelectContent className="bg-card text-white border-gray-700">
+          <SelectContent className="bg-card-background text-headline border-secondary/30">
             <SelectItem value="Todos">Todos los Ingresos</SelectItem>
             <SelectItem value="Membresías">Membresías</SelectItem>
             <SelectItem value="Clases">Clases</SelectItem>
@@ -58,10 +58,10 @@ export const ReportsPage: React.FC = () => {
           value={timePeriod}
           onValueChange={(value: TimePeriodFilter) => setTimePeriod(value)}
         >
-          <SelectTrigger className="w-full sm:w-[200px] bg-card text-white border-gray-700">
+          <SelectTrigger className="w-full sm:w-[200px] bg-card-background text-headline border-secondary/30">
             <SelectValue placeholder="Periodo de Tiempo" />
           </SelectTrigger>
-          <SelectContent className="bg-card text-white border-gray-700">
+          <SelectContent className="bg-card-background text-headline border-secondary/30">
             <SelectItem value="Este Mes">Este Mes</SelectItem>
             <SelectItem value="Últimos 3 Meses">Últimos 3 Meses</SelectItem>
             <SelectItem value="Este Año">Este Año</SelectItem>
