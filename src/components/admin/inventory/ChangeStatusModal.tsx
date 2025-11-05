@@ -47,16 +47,16 @@ export const ChangeStatusModal: React.FC<ChangeStatusModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] bg-background text-headline border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-xl font-bold text-headline">
             Cambiar estado de {item?.nombre}
           </DialogTitle>
         </DialogHeader>
         <div className="py-4">
           <label
             htmlFor="estado"
-            className="block text-sm font-medium text-gray-300 mb-2"
+            className="block text-sm font-medium text-sub-headline mb-2"
           >
             Nuevo Estado
           </label>
@@ -66,27 +66,27 @@ export const ChangeStatusModal: React.FC<ChangeStatusModalProps> = ({
               setNewStatus(value as 'En uso' | 'En mantenimiento')
             }
           >
-            <SelectTrigger className="w-full bg-blue-primary text-white border border-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+            <SelectTrigger className="w-full bg-card-background text-headline border-sm border-secondary/30 focus:ring-highlight focus:border-highlight">
               <SelectValue placeholder="Selecciona el nuevo estado" />
             </SelectTrigger>
-            <SelectContent className="bg-card text-white border-gray-700">
+            <SelectContent className="bg-card-background text-headline border-secondary/30">
               <SelectItem value="En uso">En uso</SelectItem>
               <SelectItem value="En mantenimiento">En mantenimiento</SelectItem>
             </SelectContent>
           </Select>
         </div>
-        <DialogFooter className="pt-4 mt-4 border-t border-gray-700">
+        <DialogFooter className="pt-4 mt-4 border-t border-secondary/30">
           <Button
             variant="outline"
             onClick={onClose}
-            className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+            className="bg-transparent text-sub-headline border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
           >
             Cancelar
           </Button>
           <Button
             type="submit"
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar Cambios
           </Button>

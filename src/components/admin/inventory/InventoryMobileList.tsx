@@ -24,13 +24,16 @@ export const InventoryMobileList: React.FC<InventoryMobileListProps> = ({
       {' '}
       {/* Visible solo en mobile */}
       {filteredItems.map((item) => (
-        <div key={item.id} className="bg-card p-4 rounded-lg shadow-md">
+        <div
+          key={item.id}
+          className="bg-card-background p-4 rounded-lg shadow-md"
+        >
           <div
             className="flex justify-between items-center"
             onClick={() => toggleExpand(item.id)}
           >
             <div className="flex flex-col">
-              <span className="font-medium text-white">{item.nombre}</span>
+              <span className="font-medium text-headline">{item.nombre}</span>
               <span
                 className={`px-2 py-1 mt-1 rounded-full text-xs font-semibold w-fit ${
                   item.estado === 'En uso'
@@ -44,18 +47,18 @@ export const InventoryMobileList: React.FC<InventoryMobileListProps> = ({
             <Button
               variant="ghost"
               size="icon"
-              className="hover:bg-gray-700/30"
+              className="hover:bg-background/20"
             >
               {expandedId === item.id ? (
-                <ChevronUp className="h-5 w-5 text-gray-400" />
+                <ChevronUp className="h-5 w-5 text-sub-headline" />
               ) : (
-                <ChevronDown className="h-5 w-5 text-gray-400" />
+                <ChevronDown className="h-5 w-5 text-sub-headline" />
               )}
             </Button>
           </div>
 
           {expandedId === item.id && (
-            <div className="mt-4 border-t border-gray-700 pt-4 text-sm text-gray-300 space-y-2">
+            <div className="mt-4 border-t border-secondary/30 pt-4 text-sm text-sub-headline space-y-2">
               <p>
                 <strong>Tipo:</strong> {item.tipo}
               </p>

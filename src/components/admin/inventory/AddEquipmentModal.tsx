@@ -76,9 +76,9 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] md:max-w-xl bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-2xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] md:max-w-xl bg-background text-headline border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-2xl font-bold text-headline">
             Añadir nuevo equipamiento
           </DialogTitle>
         </DialogHeader>
@@ -87,7 +87,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
           <div>
             <label
               htmlFor="nombre"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Nombre
             </label>
@@ -99,7 +99,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
                 setNombre(e.target.value);
                 setErrors((prev) => ({ ...prev, nombre: '' }));
               }}
-              className={`bg-blue-primary text-white border ${errors['nombre'] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`bg-card-background text-headline border-sm ${errors['nombre'] ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
             />
             {errors['nombre'] && (
               <p className="mt-1 text-xs text-red-500">{errors['nombre']}</p>
@@ -109,7 +109,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
           <div>
             <label
               htmlFor="tipo"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Tipo
             </label>
@@ -121,7 +121,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
                 setTipo(e.target.value);
                 setErrors((prev) => ({ ...prev, tipo: '' }));
               }}
-              className={`bg-blue-primary text-white border ${errors['tipo'] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`bg-card-background text-headline border-sm ${errors['tipo'] ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
             />
             {errors['tipo'] && (
               <p className="mt-1 text-xs text-red-500">{errors['tipo']}</p>
@@ -131,7 +131,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
           <div>
             <label
               htmlFor="estado"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Estado
             </label>
@@ -141,10 +141,10 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
                 setEstado(value as 'En uso' | 'En mantenimiento')
               }
             >
-              <SelectTrigger className="w-full bg-blue-primary text-white border border-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+              <SelectTrigger className="w-full bg-card-background text-headline border-sm border-secondary/30 focus:ring-highlight focus:border-highlight">
                 <SelectValue placeholder="Selecciona el estado" />
               </SelectTrigger>
-              <SelectContent className="bg-blue-primary text-white border-gray-700">
+              <SelectContent className="bg-card-background text-headline border-secondary/30">
                 <SelectItem value="En uso">En uso</SelectItem>
                 <SelectItem value="En mantenimiento">
                   En mantenimiento
@@ -156,7 +156,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
           <div>
             <label
               htmlFor="ubicacion"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Ubicación
             </label>
@@ -168,7 +168,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
                 setUbicacion(e.target.value);
                 setErrors((prev) => ({ ...prev, ubicacion: '' }));
               }}
-              className={`bg-blue-primary text-white border ${errors['ubicacion'] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`bg-card-background text-headline border-sm ${errors['ubicacion'] ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
             />
             {errors['ubicacion'] && (
               <p className="mt-1 text-xs text-red-500">{errors['ubicacion']}</p>
@@ -178,7 +178,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
           <div className="md:col-span-2">
             <label
               htmlFor="fechaCompra"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Fecha de Compra
             </label>
@@ -187,8 +187,8 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
                 <Button
                   variant={'outline'}
                   className={cn(
-                    'w-full justify-start text-left font-normal bg-blue-primary text-white border border-gray-700 hover:bg-blue-primary/90',
-                    !fechaCompra && 'text-muted-foreground',
+                    'w-full justify-start text-left font-normal bg-card-background text-headline border-sm border-secondary/30 hover:bg-card-background hover:text-headline',
+                    !fechaCompra && 'text-sub-headline',
                     errors['fechaCompra'] && 'border-red-500'
                   )}
                 >
@@ -200,7 +200,7 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
                   )}
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-auto p-0 bg-card border-gray-700">
+              <PopoverContent className="w-auto p-0 bg-card-background border-secondary/30">
                 <Calendar
                   mode="single"
                   selected={fechaCompra}
@@ -245,18 +245,18 @@ export const AddEquipmentModal: React.FC<AddEquipmentModalProps> = ({
             )}
           </div>
         </div>
-        <DialogFooter className="pt-4 mt-4 border-t border-gray-700">
+        <DialogFooter className="pt-4 mt-4 border-t border-secondary/30">
           <Button
             variant="outline"
             onClick={onClose}
-            className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+            className="bg-transparent text-sub-headline border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
           >
             Cancelar
           </Button>
           <Button
             type="submit"
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar
           </Button>
