@@ -37,7 +37,7 @@ const TaskInputForm: React.FC = () => {
   };
 
   return (
-    <Card className="bg-bg-primary border-gray-700 p-4 mb-6 mt-6">
+    <Card className="bg-background border-secondary/30 p-4 mb-6 mt-6">
       <form
         onSubmit={handleAddTask}
         className="flex flex-col sm:flex-row gap-4"
@@ -47,7 +47,7 @@ const TaskInputForm: React.FC = () => {
           placeholder="Ingresa la nueva tarea a realizar..."
           value={taskText}
           onChange={(e) => setTaskText(e.target.value)}
-          className="flex-grow border-gray-600 text-white placeholder-gray-400"
+          className="flex-grow bg-card-background! border-secondary/30 text-headline placeholder-sub-headline"
         />
         <Select
           value={priority}
@@ -55,28 +55,28 @@ const TaskInputForm: React.FC = () => {
         >
           <SelectTrigger
             className={cn(
-              'w-full sm:w-[150px] bg-blue-primary border-gray-600 text-white cursor-pointer',
+              'w-full sm:w-[150px] bg-card-background border-secondary/30 text-headline cursor-pointer',
               priorityStyles[priority]
             )}
           >
             <SelectValue placeholder="Prioridad" />
           </SelectTrigger>
-          <SelectContent className="bg-gray-700 border-gray-600 text-white">
+          <SelectContent className="bg-card-background border-secondary/30 text-white p-2">
             <SelectItem
               value="Alta"
-              className={cn('text-white', priorityStyles['Alta'])}
+              className={cn('text-headline mb-2', priorityStyles['Alta'])}
             >
               Alta
             </SelectItem>
             <SelectItem
               value="Media"
-              className={cn('text-white', priorityStyles['Media'])}
+              className={cn('text-headline mb-2', priorityStyles['Media'])}
             >
               Media
             </SelectItem>
             <SelectItem
               value="Baja"
-              className={cn('text-white', priorityStyles['Baja'])}
+              className={cn('text-headline', priorityStyles['Baja'])}
             >
               Baja
             </SelectItem>
@@ -84,7 +84,7 @@ const TaskInputForm: React.FC = () => {
         </Select>
         <Button
           type="submit"
-          className="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 cursor-pointer"
+          className="w-full sm:w-auto bg-highlight hover:bg-highlight/70 cursor-pointer"
           disabled={!taskText.trim()}
         >
           <Plus className="w-4 h-4 mr-2" /> Agregar
@@ -102,10 +102,10 @@ const TaskRow: React.FC<{ task: TaskItem }> = ({ task }) => {
   return (
     <div
       className={cn(
-        'flex items-center justify-between p-4 rounded-lg transition-all border border-gray-800',
+        'flex items-center justify-between p-4 rounded-lg transition-all border border-secondary/30',
         isCompleted
-          ? 'bg-gray-800/50 line-through text-gray-500'
-          : 'bg-gray-800 hover:bg-gray-700/50 text-white'
+          ? 'bg-card-background/50 line-through text-sub-headline'
+          : 'bg-card-background hover:bg-card-background/80 text-headline'
       )}
     >
       <div className="flex items-center space-x-4 min-w-0">
@@ -172,7 +172,7 @@ export const TasksTab: React.FC = () => {
         ))}
       </div>
       {tasks.length === 0 && (
-        <p className="text-center text-gray-500 py-10">
+        <p className="text-center text-sub-headline py-10">
           ¡No tienes tareas pendientes! Añade una arriba.
         </p>
       )}

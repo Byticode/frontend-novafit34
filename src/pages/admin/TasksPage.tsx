@@ -13,7 +13,7 @@ export const TasksPage: React.FC = () => {
   return (
     <TaskManagerProvider>
       <div className="min-h-screen p-4 lg:p-8 space-y-8">
-        <h1 className="text-3xl lg:text-4xl font-bold text-white">
+        <h1 className="text-3xl lg:text-4xl font-bold text-headline">
           Tareas y Notas
         </h1>
 
