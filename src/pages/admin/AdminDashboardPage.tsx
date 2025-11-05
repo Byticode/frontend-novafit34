@@ -17,8 +17,10 @@ import { Card } from '../../components/ui/card';
 
 // Componente de Actividad Reciente
 const ActivityList: React.FC = () => (
-  <div className="bg-primary border-none mb-12">
-    <h2 className="text-2xl font-bold text-white mb-6">Actividad reciente</h2>
+  <div className="bg-background border-none mb-12">
+    <h2 className="text-2xl font-bold text-headline mb-6">
+      Actividad reciente
+    </h2>
     <div className="flex flex-col gap-4">
       <ActivityItem
         icon={UserPlus}
@@ -42,81 +44,89 @@ const ActivityList: React.FC = () => (
 // Componente de Próximas Clases
 const UpcomingClasses: React.FC = () => (
   <div className="space-y-4">
-    <h2 className="text-2xl font-bold text-white mb-4 pb-0">Próximas clases</h2>
-    <Card className="bg-card border border-gray-800 shadow-md p-6">
+    <h2 className="text-2xl font-bold text-headline mb-4 pb-0">
+      Próximas clases
+    </h2>
+    <Card className="bg-card-background border-sm border-secondary/30 shadow-md p-6">
       <div className="overflow-x-auto">
         <Table>
           <TableHeader>
-            <TableRow className="border-gray-700 bg-card hover:bg-card">
-              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+            <TableRow className="border-secondary/30 bg-card-background hover:bg-card-background">
+              <TableHead className="py-3 px-2 text-sm font-medium text-headline">
                 Clase
               </TableHead>
-              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-2 text-sm font-medium text-headline">
                 Instructor
               </TableHead>
-              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-2 text-sm font-medium text-headline">
                 Hora
               </TableHead>
-              <TableHead className="py-3 px-2 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-2 text-sm font-medium text-headline">
                 Miembros inscritos
               </TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            <TableRow className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors">
-              <TableCell className="py-4 px-2 font-medium text-white">
+            <TableRow className="border-b border-secondary/20 hover:bg-background/20 transition-colors">
+              <TableCell className="py-4 px-2 font-medium text-headline">
                 Yoga
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 Emily S.
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">8:00 AM</TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
+                8:00 AM
+              </TableCell>
+              <TableCell className="py-4 px-2 text-sub-headline">
                 <div className="flex justify-center lg:justify-start items-center">
                   <span>15</span>
-                  <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
+                  <div className="ml-3 w-20 h-2 bg-secondary/30 rounded-full hidden lg:block">
                     <div
-                      className="bg-indigo-500 h-full rounded-full"
+                      className="bg-highlight h-full rounded-full"
                       style={{ width: '75%' }}
                     ></div>
                   </div>
                 </div>
               </TableCell>
             </TableRow>
-            <TableRow className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors">
-              <TableCell className="py-4 px-2 font-medium text-white">
+            <TableRow className="border-b border-secondary/20 hover:bg-background/20 transition-colors">
+              <TableCell className="py-4 px-2 font-medium text-headline">
                 Spin
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">Mark T.</TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">9:00 AM</TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
+                Mark T.
+              </TableCell>
+              <TableCell className="py-4 px-2 text-sub-headline">
+                9:00 AM
+              </TableCell>
+              <TableCell className="py-4 px-2 text-sub-headline">
                 <div className="flex justify-center lg:justify-start items-center">
                   <span>18</span>
-                  <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
+                  <div className="ml-3 w-20 h-2 bg-secondary/30 rounded-full hidden lg:block">
                     <div
-                      className="bg-indigo-500 h-full rounded-full"
+                      className="bg-highlight h-full rounded-full"
                       style={{ width: '90%' }}
                     ></div>
                   </div>
                 </div>
               </TableCell>
             </TableRow>
-            <TableRow className="hover:bg-gray-700/30 transition-colors">
-              <TableCell className="py-4 px-2 font-medium text-white">
+            <TableRow className="hover:bg-background/20 transition-colors">
+              <TableCell className="py-4 px-2 font-medium text-headline">
                 Pilates
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 Laura K.
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 10:00 AM
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 <div className="flex justify-center lg:justify-start items-center">
                   <span>12</span>
-                  <div className="ml-3 w-20 h-2 bg-gray-700 rounded-full hidden lg:block">
+                  <div className="ml-3 w-20 h-2 bg-secondary/30 rounded-full hidden lg:block">
                     <div
-                      className="bg-indigo-500 h-full rounded-full"
+                      className="bg-highlight h-full rounded-full"
                       style={{ width: '60%' }}
                     ></div>
                   </div>
@@ -144,8 +154,10 @@ export const AdminDashboardPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen p-4 lg:p-8 space-y-8">
-      <h1 className="text-3xl lg:text-4xl font-bold text-white">Dashboard</h1>
+    <div className="min-h-screen bg-background p-4 lg:p-8 space-y-8">
+      <h1 className="text-3xl lg:text-4xl font-bold text-headline">
+        Dashboard
+      </h1>
 
       {/* Tarjetas de Visión General (Overview Cards con porcentaje) */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mb-14">

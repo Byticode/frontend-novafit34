@@ -25,7 +25,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
 
       <SidebarInset>
         {/* Header (Solo para Mobile para el título y el menú hamburguesa) */}
-        <header className="lg:hidden sticky top-0 bg-bg-primary border-b border-gray-700/50 p-4 flex justify-between items-center z-30">
+        <header className="lg:hidden sticky top-0 bg-background border-b border-gray-700/50 p-4 flex justify-between items-center z-30">
           <button
             onClick={() => setIsMenuOpen(true)}
             className="text-white p-1"
@@ -37,7 +37,7 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
         </header>
 
         {/* Contenido Principal */}
-        <main className="pb-20 lg:pb-4 p-4 lg:p-8 bg-[#0F1224]">
+        <main className="pb-20 lg:pb-4 p-4 lg:p-8 bg-background">
           <div className="flex items-center gap-2 mb-0">
             <SidebarTrigger />
           </div>

@@ -34,20 +34,20 @@ export const DashboardCard: React.FC<DashboardCardProps> = ({
   const isPositive = percentage && percentage >= 0;
 
   return (
-    <Card className="bg-card border border-gray-800 shadow-md">
+    <Card className="bg-card-background border-sm border-secondary/30 shadow-md">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 p-4">
-        <CardTitle className="text-sm font-medium text-gray-400">
+        <CardTitle className="text-sm font-medium text-sub-headline">
           {title}
         </CardTitle>
-        <Icon className="w-5 h-5 text-indigo-400" />
+        <Icon className="w-5 h-5 text-highlight" />
       </CardHeader>
       <CardContent className="p-4 pt-0">
-        <div className="text-2xl font-bold text-white">{value}</div>
+        <div className="text-2xl font-bold text-headline">{value}</div>
         {percentage !== undefined && (
-          <p className="text-xs text-gray-400 pt-1">
+          <p className="text-xs text-sub-headline pt-1">
             <span
               className={cn(
-                isPositive ? 'text-green-500' : 'text-red-500',
+                isPositive ? 'text-tertiary' : 'text-red-400',
                 'font-bold'
               )}
             >
