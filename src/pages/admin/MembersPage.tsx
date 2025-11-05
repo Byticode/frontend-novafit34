@@ -87,12 +87,12 @@ export const MembersPage: React.FC = () => {
   return (
     <div className="min-h-screen p-4 lg:p-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 lg:mb-8">
-        <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-0">
+        <h1 className="text-3xl lg:text-4xl font-bold text-headline mb-4 md:mb-0">
           Miembros
         </h1>
         <Button
           onClick={() => setIsAddModalOpen(true)}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white flex items-center shadow-lg cursor-pointer"
+          className="bg-highlight hover:bg-highlight/70 text-headline flex items-center shadow-lg cursor-pointer"
         >
           <Plus className="w-5 h-5 mr-2" /> Añadir Miembro
         </Button>
@@ -100,7 +100,7 @@ export const MembersPage: React.FC = () => {
 
       <div className="relative mb-6">
         <Search
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary"
           size={20}
         />
         <Input
@@ -108,19 +108,19 @@ export const MembersPage: React.FC = () => {
           placeholder="Buscar miembros por nombre o correo..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-6 pl-10 rounded-lg bg-card text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-md"
+          className="w-full p-6 pl-10 rounded-lg bg-card-background text-headline placeholder-secondary border-sm border-secondary/20 focus:outline-none focus:ring-2 focus:ring-highlight shadow-md"
         />
       </div>
 
-      <div className="flex border-b border-gray-700 mb-6 overflow-x-auto whitespace-nowrap">
+      <div className="flex border-b border-secondary/40 mb-6 overflow-x-auto whitespace-nowrap">
         {FILTER_OPTIONS.map((option) => (
           <button
             key={option}
             onClick={() => setFilter(option)}
             className={`py-2 px-4 text-sm font-medium transition-colors ${
               filter === option
-                ? 'border-b-2 border-indigo-500 text-indigo-400'
-                : 'text-gray-400 hover:text-white cursor-pointer'
+                ? 'border-b-2 border-highlight text-indigo-400'
+                : 'text-sub-headline hover:text-headline cursor-pointer'
             }`}
           >
             {option}

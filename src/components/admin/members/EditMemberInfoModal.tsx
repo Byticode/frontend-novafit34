@@ -54,9 +54,9 @@ export const EditMemberInfoModal: React.FC<EditMemberInfoModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] md:max-w-md bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-2xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] md:max-w-md bg-background text-headline border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-2xl font-bold text-headline">
             Editar Membresía de {member.nombre}
           </DialogTitle>
         </DialogHeader>
@@ -65,7 +65,7 @@ export const EditMemberInfoModal: React.FC<EditMemberInfoModalProps> = ({
           <div>
             <label
               htmlFor="plan"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Plan Actual
             </label>
@@ -73,10 +73,10 @@ export const EditMemberInfoModal: React.FC<EditMemberInfoModalProps> = ({
               value={currentPlan}
               onValueChange={(value) => setCurrentPlan(value as MemberPlan)}
             >
-              <SelectTrigger className="w-full bg-blue-primary text-white border border-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+              <SelectTrigger className="w-full bg-card-background text-headline border-sm border-secondary/30 focus:ring-highlight focus:border-highlight">
                 <SelectValue placeholder="Selecciona el plan" />
               </SelectTrigger>
-              <SelectContent className="bg-card text-white border-gray-700">
+              <SelectContent className="bg-card-background text-headline border-secondary/30">
                 <SelectItem value="Básico">Básico</SelectItem>
                 <SelectItem value="Premium">Premium</SelectItem>
               </SelectContent>
@@ -87,7 +87,7 @@ export const EditMemberInfoModal: React.FC<EditMemberInfoModalProps> = ({
           <div>
             <label
               htmlFor="status"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Estado
             </label>
@@ -95,10 +95,10 @@ export const EditMemberInfoModal: React.FC<EditMemberInfoModalProps> = ({
               value={currentStatus}
               onValueChange={(value) => setCurrentStatus(value as MemberStatus)}
             >
-              <SelectTrigger className="w-full bg-blue-primary text-white border border-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+              <SelectTrigger className="w-full bg-card-background text-headline border-sm border-secondary/30 focus:ring-highlight focus:border-highlight">
                 <SelectValue placeholder="Selecciona el estado" />
               </SelectTrigger>
-              <SelectContent className="bg-card text-white border-gray-700">
+              <SelectContent className="bg-card-background text-headline border-secondary/30">
                 <SelectItem value="Activo">Activo</SelectItem>
                 <SelectItem value="Inactivo">Inactivo</SelectItem>
               </SelectContent>
@@ -106,18 +106,18 @@ export const EditMemberInfoModal: React.FC<EditMemberInfoModalProps> = ({
           </div>
         </div>
 
-        <DialogFooter className="pt-4 mt-4 border-t border-gray-700">
+        <DialogFooter className="pt-4 mt-4 border-t border-secondary/30">
           <Button
             variant="outline"
             onClick={onClose}
-            className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+            className="bg-transparent text-sub-headline border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
           >
             Cancelar
           </Button>
           <Button
             type="submit"
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar Cambios
           </Button>
