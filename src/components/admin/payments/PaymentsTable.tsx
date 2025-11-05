@@ -70,29 +70,29 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({
 
   // --- VISTA DESKTOP ---
   const DesktopTable = (
-    <div className="overflow-x-auto hidden lg:block bg-card rounded-lg shadow-xl border border-gray-800 px-6 py-4">
+    <div className="overflow-x-auto hidden lg:block bg-card-background rounded-lg shadow-xl border-sm border-secondary/30 px-6 py-4">
       <Table className="min-w-full text-left">
         <TableHeader>
-          <TableRow className="border-gray-700 bg-[var(--blue-primary)] hover:bg-[var(--blue-primary)]">
-            <TableHead className="text-sm font-medium text-gray-400">
+          <TableRow className="border-secondary/30 bg-card-background hover:bg-card-background">
+            <TableHead className="text-sm font-medium text-headline">
               Nombre
             </TableHead>
-            <TableHead className="text-sm font-medium text-gray-400">
+            <TableHead className="text-sm font-medium text-headline">
               Plan
             </TableHead>
-            <TableHead className="text-sm font-medium text-gray-400">
+            <TableHead className="text-sm font-medium text-headline">
               Fecha de Inicio
             </TableHead>
-            <TableHead className="text-sm font-medium text-gray-400">
+            <TableHead className="text-sm font-medium text-headline">
               Fecha de Vencimiento
             </TableHead>
-            <TableHead className="text-sm font-medium text-gray-400">
+            <TableHead className="text-sm font-medium text-headline">
               Estado
             </TableHead>
-            <TableHead className="text-sm font-medium text-gray-400">
+            <TableHead className="text-sm font-medium text-headline">
               Monto
             </TableHead>
-            <TableHead className="text-sm font-medium text-gray-400">
+            <TableHead className="text-sm font-medium text-headline">
               Acciones
             </TableHead>
           </TableRow>
@@ -101,31 +101,31 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({
           {filteredPayments.map((payment) => (
             <TableRow
               key={payment.id}
-              className="border-gray-800 hover:bg-gray-700/30 transition-colors"
+              className="border-secondary/20 hover:bg-background/20 transition-colors"
             >
-              <TableCell className="py-4 px-2 font-medium text-white">
+              <TableCell className="py-4 px-2 font-medium text-sub-headline">
                 {payment.memberName}
               </TableCell>
               <TableCell className="py-4 px-2">
                 <PaymentTag type="plan" value={payment.plan} />
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 {payment.fechaInicio}
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 {payment.fechaVencimiento}
               </TableCell>
               <TableCell className="py-4 px-2">
                 <PaymentTag type="status" value={payment.estado} />
               </TableCell>
-              <TableCell className="py-4 px-2 text-green-400 font-semibold">
+              <TableCell className="py-4 px-2 text-tertiary font-semibold">
                 ${payment.monto.toFixed(2)}
               </TableCell>
               <TableCell className="py-4 px-2">
                 <Button
                   variant="link"
                   onClick={() => onViewPayment(payment)}
-                  className="p-0 h-auto text-indigo-400 hover:text-indigo-500 cursor-pointer"
+                  className="p-0 h-auto text-highlight hover:text-indigo-400 cursor-pointer"
                 >
                   Ver
                 </Button>
@@ -145,14 +145,16 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({
       {filteredPayments.map((item) => (
         <div
           key={item.id}
-          className="bg-card p-4 rounded-lg shadow-md border border-gray-800"
+          className="bg-card-background p-4 rounded-lg shadow-md border-sm border-secondary/30"
         >
           <div
             className="flex justify-between items-center"
             onClick={() => toggleExpand(item.id)}
           >
             <div className="flex flex-col space-y-1">
-              <span className="font-medium text-white">{item.memberName}</span>
+              <span className="font-medium text-headline">
+                {item.memberName}
+              </span>
               <div className="flex space-x-2">
                 <PaymentTag type="status" value={item.estado} />
                 <PaymentTag type="plan" value={item.plan} />
@@ -172,10 +174,10 @@ export const PaymentsTable: React.FC<PaymentsTableProps> = ({
           </div>
 
           {expandedId === item.id && (
-            <div className="mt-4 border-t border-gray-700 pt-4 text-sm text-gray-300 space-y-2">
+            <div className="mt-4 border-t border-secondary/30 pt-4 text-sm text-sub-headline space-y-2">
               <p>
                 <strong>Monto:</strong>{' '}
-                <span className="text-green-400 font-bold">
+                <span className="text-tertiary font-bold">
                   ${item.monto.toFixed(2)}
                 </span>
               </p>

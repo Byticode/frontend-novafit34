@@ -91,9 +91,9 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] md:max-w-md bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-2xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] md:max-w-md bg-background text-headline border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-2xl font-bold text-headline">
             Añadir Nuevo Pago
           </DialogTitle>
         </DialogHeader>
@@ -102,7 +102,7 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
           <div>
             <label
               htmlFor="member"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Miembro
             </label>
@@ -114,11 +114,11 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
               }}
             >
               <SelectTrigger
-                className={`w-full bg-blue-primary text-white border ${errors['selectedMemberId'] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+                className={`w-full bg-card-background text-headline border-sm ${errors['selectedMemberId'] ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
               >
                 <SelectValue placeholder="Selecciona un miembro" />
               </SelectTrigger>
-              <SelectContent className="bg-blue-primary text-white border-gray-700">
+              <SelectContent className="bg-card-background text-headline border-secondary/30">
                 {DUMMY_MEMBERS.map((member) => (
                   <SelectItem key={member.id} value={member.id}>
                     {member.nombre} ({member.correo})
@@ -136,7 +136,7 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
           <div>
             <label
               htmlFor="plan"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Plan
             </label>
@@ -144,10 +144,10 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
               value={selectedPlan}
               onValueChange={(value) => setSelectedPlan(value as MemberPlan)}
             >
-              <SelectTrigger className="w-full bg-blue-primary text-white border border-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+              <SelectTrigger className="w-full bg-card-background text-headline border-sm border-secondary/30 focus:ring-highlight focus:border-highlight">
                 <SelectValue placeholder="Selecciona el plan" />
               </SelectTrigger>
-              <SelectContent className="bg-card text-white border-gray-700">
+              <SelectContent className="bg-card-background text-headline border-secondary/30">
                 <SelectItem value="Básico">Básico</SelectItem>
                 <SelectItem value="Premium">Premium</SelectItem>
               </SelectContent>
@@ -158,7 +158,7 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
           <div>
             <label
               htmlFor="monto"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Monto ($)
             </label>
@@ -171,7 +171,7 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
                 setMonto(e.target.value);
                 setErrors((prev) => ({ ...prev, monto: '' }));
               }}
-              className={`bg-blue-primary text-white border ${errors[monto] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`bg-card-background text-headline border-sm ${errors[monto] ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
             />
             {errors[monto] && (
               <p className="mt-1 text-xs text-red-500">{errors[monto]}</p>
@@ -182,7 +182,7 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
           <div>
             <label
               htmlFor="referencia"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Referencia Bancaria
             </label>
@@ -194,7 +194,7 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
                 setReferenciaBancaria(e.target.value);
                 setErrors((prev) => ({ ...prev, referenciaBancaria: '' }));
               }}
-              className={`bg-blue-primary text-white border ${errors[referenciaBancaria] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`bg-card-background text-headline border-sm ${errors[referenciaBancaria] ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
             />
             {errors[referenciaBancaria] && (
               <p className="mt-1 text-xs text-red-500">
@@ -204,18 +204,18 @@ export const AddPaymentModal: React.FC<AddPaymentModalProps> = ({
           </div>
         </div>
 
-        <DialogFooter className="pt-4 mt-4 border-t border-gray-700">
+        <DialogFooter className="pt-4 mt-4 border-t border-secondary/30">
           <Button
             variant="outline"
             onClick={onClose}
-            className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+            className="bg-transparent text-sub-headline border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
           >
             Cancelar
           </Button>
           <Button
             type="submit"
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar Pago
           </Button>

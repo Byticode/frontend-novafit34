@@ -50,44 +50,46 @@ export const ViewPaymentModal: React.FC<ViewPaymentModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] bg-background text-headline border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-xl font-bold text-headline">
             Detalles del Pago
           </DialogTitle>
-          <DialogDescription className="text-gray-400">
+          <DialogDescription className="text-sub-headline">
             Referencia: {payment.referenciaBancaria}
           </DialogDescription>
         </DialogHeader>
         <div className="grid gap-4 py-4 text-sm">
           <p>
             <strong>Miembro:</strong>{' '}
-            <span className="text-gray-300">{payment.memberName}</span>
+            <span className="text-sub-headline">{payment.memberName}</span>
           </p>
           <p>
             <strong>Plan:</strong>{' '}
-            <span className="text-gray-300">{payment.plan}</span>
+            <span className="text-sub-headline">{payment.plan}</span>
           </p>
           <p>
             <strong>Monto:</strong>{' '}
-            <span className="text-green-400 font-bold">
+            <span className="text-tertiary font-bold">
               ${payment.monto.toFixed(2)}
             </span>
           </p>
           <p>
             <strong>Fecha Inicio:</strong>{' '}
-            <span className="text-gray-300">{payment.fechaInicio}</span>
+            <span className="text-sub-headline">{payment.fechaInicio}</span>
           </p>
           <p>
             <strong>Fecha Vencimiento:</strong>{' '}
-            <span className="text-gray-300">{payment.fechaVencimiento}</span>
+            <span className="text-sub-headline">
+              {payment.fechaVencimiento}
+            </span>
           </p>
 
           {/* Cambiar Estado */}
           <div>
             <label
               htmlFor="estado"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Estado
             </label>
@@ -97,28 +99,28 @@ export const ViewPaymentModal: React.FC<ViewPaymentModalProps> = ({
                 setCurrentStatus(value as PaymentStatus)
               }
             >
-              <SelectTrigger className="w-full bg-blue-primary text-white border border-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+              <SelectTrigger className="w-full bg-card-background text-headline border-sm border-secondary/30 focus:ring-highlight focus:border-highlight">
                 <SelectValue placeholder="Selecciona el estado" />
               </SelectTrigger>
-              <SelectContent className="bg-card text-white border-gray-700">
+              <SelectContent className="bg-card-background text-headline border-secondary/30">
                 <SelectItem value="Pendiente">Pendiente</SelectItem>
                 <SelectItem value="Pagado">Pagado</SelectItem>
               </SelectContent>
             </Select>
           </div>
         </div>
-        <DialogFooter className="pt-4 mt-4 border-t border-gray-700">
+        <DialogFooter className="pt-4 mt-4 border-t border-secondary/30">
           <Button
             variant="outline"
             onClick={onClose}
-            className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+            className="bg-transparent text-sub-headline border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
           >
             Cerrar
           </Button>
           <Button
             type="submit"
             onClick={handleUpdate}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar Cambios
           </Button>
