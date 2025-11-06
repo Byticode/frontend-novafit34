@@ -51,13 +51,13 @@ export const ConvexSignIn: React.FC = () => {
 
   return (
     <AuthRedirect>
-      <div className="min-h-screen bg-bg-primary flex flex-col items-center justify-center p-4">
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
         <div className="absolute top-6 left-6 flex justify-center mb-6">
-          <span className="text-2xl font-bold text-white">Novafit34</span>
+          <span className="text-2xl font-bold text-headline">Novafit34</span>
         </div>
 
         <div className="p-6 md:p-10 w-full max-w-md">
-          <h2 className="text-center text-3xl font-bold text-white mb-8">
+          <h2 className="text-center text-3xl font-bold text-headline mb-8">
             Bienvenido
           </h2>
 
@@ -65,7 +65,7 @@ export const ConvexSignIn: React.FC = () => {
             {/* Campo de Correo */}
             <div className="relative mb-10">
               <Mail
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-sub-headline"
                 size={20}
               />
               <input
@@ -73,9 +73,9 @@ export const ConvexSignIn: React.FC = () => {
                 placeholder="Correo electrónico"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`w-full p-3 pl-10 rounded-lg bg-blue-primary text-white placeholder-gray-400 border-2 ${
+                className={`w-full p-3 pl-10 rounded-lg bg-card-background text-headline placeholder-sub-headline border border-secondary/30! ${
                   errors.email ? 'border-red-500' : 'border-transparent'
-                } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                } focus:outline-none focus:ring-2 focus:ring-highlight`}
                 disabled={isLoading}
               />
               {errors.email && (
@@ -88,7 +88,7 @@ export const ConvexSignIn: React.FC = () => {
             {/* Campo de Contraseña */}
             <div className="relative">
               <Lock
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-sub-headline"
                 size={20}
               />
               <input
@@ -96,9 +96,9 @@ export const ConvexSignIn: React.FC = () => {
                 placeholder="Contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-full p-3 pl-10 rounded-lg bg-blue-primary text-white placeholder-gray-400 border-2 ${
+                className={`w-full p-3 pl-10 rounded-lg bg-card-background text-headline placeholder-sub-headline border border-secondary/30! ${
                   errors.password ? 'border-red-500' : 'border-transparent'
-                } focus:outline-none focus:ring-2 focus:ring-indigo-500`}
+                } focus:outline-none focus:ring-2 focus:ring-highlight`}
                 disabled={isLoading}
               />
               {errors.password && (
@@ -112,7 +112,7 @@ export const ConvexSignIn: React.FC = () => {
             <div className="flex justify-end">
               <a
                 href="/forgot-password"
-                className="text-sm font-medium text-gray-400 hover:text-indigo-400"
+                className="text-sm font-medium text-sub-headline hover:text-indigo-400"
               >
                 ¿Olvidaste tu contraseña?
               </a>
@@ -127,7 +127,7 @@ export const ConvexSignIn: React.FC = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 transition-colors hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-highlight text-headline font-bold py-3 px-4 rounded-lg hover:bg-highlight/70 transition-colors hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? 'Iniciando sesión...' : 'Iniciar sesión'}
             </button>
@@ -135,7 +135,7 @@ export const ConvexSignIn: React.FC = () => {
 
           {/* Enlace para ir a la página de registro */}
           <div className="text-center mt-6">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-sub-headline">
               ¿No tienes una cuenta?{' '}
               <Link
                 to="/sign-up"
