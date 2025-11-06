@@ -25,10 +25,10 @@ export const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
 
       <SidebarInset>
         {/* Header (Solo para Mobile para el título y el menú hamburguesa) */}
-        <header className="lg:hidden sticky top-0 bg-background border-b border-gray-700/50 p-4 flex justify-between items-center z-30">
+        <header className="lg:hidden sticky top-0 bg-background border-b border-secondary/30 p-4 flex justify-between items-center z-30">
           <button
             onClick={() => setIsMenuOpen(true)}
-            className="text-white p-1"
+            className="text-headline p-1"
           >
             <Menu className="w-6 h-6" />
           </button>
