@@ -78,7 +78,7 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
 
   return (
     <Dialog open={true} onOpenChange={handleClose}>
-      <DialogContent className="sm:max-w-4xl bg-bg-primary border-gray-700 p-6">
+      <DialogContent className="sm:max-w-4xl bg-card-background border-secondary/30 p-6">
         <DialogHeader>
           <div className="flex justify-end">
             <Button
@@ -96,13 +96,13 @@ const NoteEditor: React.FC<NoteEditorProps> = ({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder="Tu título..."
-          className="w-full bg-transparent text-white border-none focus:ring-0 p-0 text-2xl font-bold focus:outline-none"
+          className="w-full bg-transparent text-headline border-none focus:ring-0 p-0 text-2xl font-bold focus:outline-none"
         />
         <Textarea
           value={body}
           onChange={(e) => setBody(e.target.value)}
           placeholder="Escribe el resto de tu nota aquí..."
-          className="w-full min-h-[360px] bg-transparent text-gray-300 border-none focus:ring-0 focus-none p-0 text-base resize-none focus:outline-none mt-2"
+          className="w-full min-h-[360px] bg-transparent text-sub-headline border-none focus:ring-0 focus-none p-0 text-base resize-none focus:outline-none mt-2"
           style={{
             fontFamily: 'Inter, sans-serif',
             lineHeight: 1.6,
@@ -131,16 +131,16 @@ const NoteCard: React.FC<{
     <>
       <DialogTrigger asChild>
         <Card
-          className="bg-gray-800/80 border border-gray-700 cursor-pointer hover:border-indigo-500 transition-colors h-[150px] px-2 py-4"
+          className="bg-card-background border border-secondary/30 cursor-pointer hover:border-highlight transition-colors h-[150px] px-2 py-4"
           onClick={() => setIsOpen(true)}
         >
           <CardHeader className="p-4 pb-0">
-            <CardTitle className="text-lg font-bold text-white line-clamp-2 min-h-[50px]">
+            <CardTitle className="text-lg font-bold text-headline line-clamp-2 min-h-[50px]">
               {title}
             </CardTitle>
           </CardHeader>
           <CardContent className="p-4 pt-1">
-            <CardDescription className="text-xs text-gray-400">
+            <CardDescription className="text-xs text-sub-headline">
               Modificado: {date}
             </CardDescription>
           </CardContent>
@@ -177,7 +177,7 @@ export const NotesTab: React.FC = () => {
       <div className="flex justify-end">
         <Button
           onClick={handleCreateNewNote}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+          className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
         >
           <Plus className="w-4 h-4 mr-2" /> Crear Nueva Nota
         </Button>
@@ -190,7 +190,7 @@ export const NotesTab: React.FC = () => {
         ))}
       </div>
       {notes.length === 0 && (
-        <p className="text-center text-gray-500 py-10">
+        <p className="text-center text-sub-headline py-10">
           Aún no tienes notas. ¡Crea una para comenzar!
         </p>
       )}

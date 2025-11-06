@@ -21,8 +21,8 @@ const SecuritySection: React.FC<SecuritySectionProps> = ({
 }) => (
   <div className="flex justify-between items-start space-x-4 py-4">
     <div className="flex-1">
-      <h3 className="text-xl font-semibold text-white">{title}</h3>
-      <p className="text-sm text-gray-400 mt-1">{description}</p>
+      <h3 className="text-xl font-semibold text-headline">{title}</h3>
+      <p className="text-sm text-sub-headline mt-1">{description}</p>
     </div>
     <div className="flex-shrink-0">{children}</div>
   </div>
@@ -45,17 +45,19 @@ export const SecurityPage: React.FC = () => {
         <ArrowLeft className="w-5 h-5 mr-2" /> Volver a Ajustes
       </Button>
 
-      <h1 className="text-3xl lg:text-4xl font-bold text-white">Seguridad</h1>
-      <p className="text-gray-400">
+      <h1 className="text-3xl lg:text-4xl font-bold text-headline">
+        Seguridad
+      </h1>
+      <p className="text-sub-headline">
         Gestiona la configuración de seguridad de tu cuenta y el acceso.
       </p>
 
-      <Card className="bg-bg-primary border-none p-6 mt-10">
+      <Card className="bg-background border-none p-6 mt-10 shadow-none">
         <CardContent className="space-y-8 p-0">
           {/* Autenticación de dos factores */}
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-white flex items-center mb-3">
-              <Shield className="w-6 h-6 mr-2 text-indigo-400" /> Autenticación
+            <h2 className="text-2xl font-bold text-headline flex items-center mb-3">
+              <Shield className="w-6 h-6 mr-2 text-highlight" /> Autenticación
               de dos factores
             </h2>
             <SecuritySection
@@ -65,15 +67,15 @@ export const SecurityPage: React.FC = () => {
               <Switch
                 checked={is2FAEnabled}
                 onCheckedChange={setIs2FAEnabled}
-                className="data-[state=checked]:bg-indigo-600"
+                className="data-[state=checked]:bg-highlight"
               />
             </SecuritySection>
           </div>
 
           {/* Contraseña */}
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-white flex items-center mb-3">
-              <Lock className="w-6 h-6 mr-2 text-indigo-400" /> Contraseña
+            <h2 className="text-2xl font-bold text-headline flex items-center mb-3">
+              <Lock className="w-6 h-6 mr-2 text-highlight" /> Contraseña
             </h2>
             <SecuritySection
               title="Cambiar contraseña"
@@ -82,7 +84,7 @@ export const SecurityPage: React.FC = () => {
               <Button
                 onClick={() => setIsPasswordModalOpen(true)}
                 variant="default"
-                className="bg-gray-700 hover:bg-gray-600 text-white cursor-pointer"
+                className="bg-card-background hover:bg-gray-800 text-headline cursor-pointer"
               >
                 Cambiar
               </Button>
@@ -91,8 +93,8 @@ export const SecurityPage: React.FC = () => {
 
           {/* Registro de actividad */}
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-white flex items-center mb-3">
-              <Activity className="w-6 h-6 mr-2 text-indigo-400" /> Registro de
+            <h2 className="text-2xl font-bold text-headline flex items-center mb-3">
+              <Activity className="w-6 h-6 mr-2 text-highlight" /> Registro de
               actividad
             </h2>
             <SecuritySection
@@ -102,7 +104,7 @@ export const SecurityPage: React.FC = () => {
               <Button
                 onClick={() => setIsActivityModalOpen(true)}
                 variant="default"
-                className="bg-gray-700 hover:bg-gray-600 text-white cursor-pointer"
+                className="bg-card-background hover:bg-gray-800 text-headline cursor-pointer"
               >
                 Ver
               </Button>
@@ -111,8 +113,8 @@ export const SecurityPage: React.FC = () => {
 
           {/* 4. Políticas de sesión */}
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold text-white flex items-center mb-3">
-              <Clock className="w-6 h-6 mr-2 text-indigo-400" /> Políticas de
+            <h2 className="text-2xl font-bold text-headline flex items-center mb-3">
+              <Clock className="w-6 h-6 mr-2 text-highlight" /> Políticas de
               sesión
             </h2>
             <SecuritySection
@@ -121,7 +123,7 @@ export const SecurityPage: React.FC = () => {
             >
               <Button
                 variant="default"
-                className="bg-gray-700 hover:bg-gray-600 text-white cursor-pointer"
+                className="bg-card-background hover:bg-gray-800 text-headline cursor-pointer"
                 disabled // Deshabilitado hasta que se defina la funcionalidad
               >
                 Gestionar

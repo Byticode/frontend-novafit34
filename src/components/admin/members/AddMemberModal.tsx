@@ -63,9 +63,9 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] md:max-w-md bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-2xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] md:max-w-md bg-background text-headline border-sm border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-2xl font-bold text-headline">
             Añadir Nuevo Miembro
           </DialogTitle>
         </DialogHeader>
@@ -74,7 +74,7 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
           <div>
             <label
               htmlFor="nombre"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Nombre Completo
             </label>
@@ -86,7 +86,7 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
                 setNombre(e.target.value);
                 setErrors((prev) => ({ ...prev, nombre: '' }));
               }}
-              className={`bg-blue-primary text-white border ${errors[nombre] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`bg-card-background text-headline border-sm ${errors[nombre] ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-indigo-500`}
             />
             {errors[nombre] && (
               <p className="mt-1 text-xs text-red-500">{errors[nombre]}</p>
@@ -97,7 +97,7 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
           <div>
             <label
               htmlFor="correo"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Correo Electrónico
             </label>
@@ -110,7 +110,7 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
                 setCorreo(e.target.value);
                 setErrors((prev) => ({ ...prev, correo: '' }));
               }}
-              className={`bg-blue-primary text-white border ${errors[correo] ? 'border-red-500' : 'border-gray-700'} focus:ring-indigo-500 focus:border-indigo-500`}
+              className={`bg-card-background text-headline border-sm ${errors[correo] ? 'border-red-500' : 'border-secondary/30'} focus:ring-indigo-500 focus:border-indigo-500`}
             />
             {errors[correo] && (
               <p className="mt-1 text-xs text-red-500">{errors[correo]}</p>
@@ -121,7 +121,7 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
           <div>
             <label
               htmlFor="plan"
-              className="block text-sm font-medium text-gray-300 mb-2"
+              className="block text-sm font-medium text-sub-headline mb-2"
             >
               Tipo de Plan
             </label>
@@ -129,10 +129,10 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
               value={plan}
               onValueChange={(value) => setPlan(value as MemberPlan)}
             >
-              <SelectTrigger className="w-full bg-blue-primary text-white border border-gray-700 focus:ring-indigo-500 focus:border-indigo-500">
+              <SelectTrigger className="w-full bg-card-background text-headline border-sm border-secondary/30 focus:ring-highlight focus:border-highlight">
                 <SelectValue placeholder="Selecciona el plan" />
               </SelectTrigger>
-              <SelectContent className="bg-card text-white border-gray-700">
+              <SelectContent className="bg-card-background text-headline border-sm border-secondary/30">
                 <SelectItem value="Básico">Básico</SelectItem>
                 <SelectItem value="Premium">Premium</SelectItem>
               </SelectContent>
@@ -140,18 +140,18 @@ export const AddMemberModal: React.FC<AddMemberModalProps> = ({
           </div>
         </div>
 
-        <DialogFooter className="pt-4 mt-4 border-t border-gray-700">
+        <DialogFooter className="pt-4 mt-4 border-t border-secondary/30">
           <Button
             variant="outline"
             onClick={onClose}
-            className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+            className="bg-transparent text-sub-headline border-sm border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
           >
             Cancelar
           </Button>
           <Button
             type="submit"
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar
           </Button>

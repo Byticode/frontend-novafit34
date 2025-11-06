@@ -38,15 +38,15 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-2xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] bg-background text-headlibe border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-2xl font-bold text-headline">
             Cambiar Contraseña
           </DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="grid gap-4 py-4">
           <div className="space-y-2">
-            <Label htmlFor="current" className="text-right text-gray-300">
+            <Label htmlFor="current" className="text-right text-sub-headline">
               Contraseña Actual
             </Label>
             <Input
@@ -54,12 +54,12 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({
               type="password"
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
-              className="bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+              className="bg-card-background border-secondary/30 text-headline focus:ring-highlight"
               required
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="new" className="text-right text-gray-300">
+            <Label htmlFor="new" className="text-right text-sub-headline">
               Nueva Contraseña
             </Label>
             <Input
@@ -67,12 +67,12 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+              className="bg-card-background border-secondary/30 text-headline focus:ring-highlight"
               required
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="confirm" className="text-right text-gray-300">
+            <Label htmlFor="confirm" className="text-right text-sub-headline">
               Confirmar Nueva Contraseña
             </Label>
             <Input
@@ -80,21 +80,21 @@ export const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({
               type="password"
               value={confirmNewPassword}
               onChange={(e) => setConfirmNewPassword(e.target.value)}
-              className="bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+              className="bg-card-background border-secondary/30 text-headline focus:ring-highlight"
               required
             />
           </div>
-          <DialogFooter className="pt-4 mt-4 border-t border-gray-700">
+          <DialogFooter className="pt-4 mt-4 border-t border-secondary/30">
             <Button
               variant="outline"
               onClick={onClose}
-              className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+              className="bg-transparent text-sub-headline border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
             >
               Cancelar
             </Button>
             <Button
               type="submit"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+              className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
             >
               Guardar
             </Button>

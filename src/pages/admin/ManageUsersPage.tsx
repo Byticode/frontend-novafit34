@@ -114,9 +114,9 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] bg-bg-primary border-gray-700 p-6">
-        <DialogHeader className="flex justify-start items-center border-b border-gray-700 pb-3">
-          <DialogTitle className="text-xl font-bold text-white">
+      <DialogContent className="sm:max-w-[425px] bg-background border-secondary/30 p-6">
+        <DialogHeader className="flex justify-start items-center border-b border-secondary/30 pb-3">
+          <DialogTitle className="text-xl font-bold text-headline">
             Editar {user.name}
           </DialogTitle>
         </DialogHeader>
@@ -124,17 +124,17 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
         <div className="py-4 space-y-5">
           {/* Edición de Rol */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300 block">
+            <label className="text-sm font-medium text-sub-headline block">
               Rol
             </label>
             <Select
               value={newRole}
               onValueChange={(value) => setNewRole(value as UserRole)}
             >
-              <SelectTrigger className="w-full bg-blue-primary border-gray-700 text-white">
+              <SelectTrigger className="w-full bg-card-background border-secondary/30 text-headline">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-blue-primary border-gray-700 text-white">
+              <SelectContent className="bg-card-background border-secondary/30 text-headline">
                 {roleOptions.map((role) => (
                   <SelectItem key={role} value={role}>
                     {role}
@@ -146,17 +146,17 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
 
           {/* Edición de Estado */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300 block">
+            <label className="text-sm font-medium text-sub-headline block">
               Estado
             </label>
             <Select
               value={newStatus}
               onValueChange={(value) => setNewStatus(value as UserStatus)}
             >
-              <SelectTrigger className="w-full bg-blue-primary border-gray-700 text-white">
+              <SelectTrigger className="w-full bg-card-background border-secondary/30 text-headline">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-blue-primary border-gray-700 text-white">
+              <SelectContent className="bg-card-background border-secondary/30 text-headline">
                 {statusOptions.map((status) => (
                   <SelectItem key={status} value={status}>
                     {status}
@@ -167,10 +167,10 @@ const EditUserModal: React.FC<EditUserModalProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-end pt-3 border-t border-gray-700">
+        <div className="flex justify-end pt-3 border-t border-secondary/30">
           <Button
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar Cambios
           </Button>
@@ -213,13 +213,15 @@ const UserTableRow: React.FC<UserTableRowProps> = ({
 
   return (
     <TableRow
-      className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors cursor-pointer"
+      className="border-b border-secondary/30 hover:bg-background/20 transition-colors cursor-pointer"
       onClick={handleRowClick}
     >
-      <TableCell className="py-4 px-4 font-medium text-white">
+      <TableCell className="py-4 px-4 font-medium text-sub-headline">
         {user.name}
       </TableCell>
-      <TableCell className="py-4 px-4 text-gray-300">{user.email}</TableCell>
+      <TableCell className="py-4 px-4 text-sub-headline">
+        {user.email}
+      </TableCell>
 
       <TableCell className="py-4 px-4">
         <span
@@ -253,9 +255,9 @@ const UserTableRow: React.FC<UserTableRowProps> = ({
             onEdit(user);
           }}
           title="Editar Rol y Estado"
-          className="hover:bg-blue-primary/80 cursor-pointer"
+          className="hover:bg-card-background cursor-pointer"
         >
-          <Pencil className="w-5 h-5 text-indigo-400" />
+          <Pencil className="w-5 h-5 text-highlight" />
         </Button>
       </TableCell>
     </TableRow>
@@ -325,17 +327,17 @@ export const ManageUsersPage: React.FC = () => {
       >
         <ArrowLeft className="w-5 h-5 mr-2" /> Volver a Ajustes
       </Button>
-      <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+      <h1 className="text-3xl lg:text-4xl font-bold text-headline mb-4">
         Usuarios y Roles
       </h1>
-      <p className="text-gray-400 mb-8">
+      <p className="text-sub-headline mb-8">
         Gestiona todos los usuarios del sistema, incluyendo miembros y
         empleados.
       </p>
 
       <div className="relative mb-6">
         <Search
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-sub-headline"
           size={20}
         />
         <Input
@@ -343,19 +345,19 @@ export const ManageUsersPage: React.FC = () => {
           placeholder="Buscar usuarios por nombre o correo..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-full p-6 pl-10 rounded-lg bg-card text-white placeholder-gray-400 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-md"
+          className="w-full p-6 pl-10 rounded-lg bg-card-background text-headline placeholder-sub-headline border border-secondary/30 focus:outline-none focus:ring-2 focus:ring-highlight shadow-md"
         />
       </div>
 
-      <div className="flex border-b border-gray-700 mb-6 overflow-x-auto whitespace-nowrap">
+      <div className="flex border-b border-secondary/30 mb-6 overflow-x-auto whitespace-nowrap">
         {FILTER_OPTIONS.map((option) => (
           <button
             key={option}
             onClick={() => setFilter(option)}
             className={`py-2 px-4 text-sm font-medium transition-colors ${
               filter === option
-                ? 'border-b-2 border-indigo-500 text-indigo-400'
-                : 'text-gray-400 hover:text-white cursor-pointer'
+                ? 'border-b-2 border-highlight text-indigo-400'
+                : 'text-sub-headline hover:text-headline cursor-pointer'
             }`}
           >
             {option === 'Active'
@@ -367,23 +369,23 @@ export const ManageUsersPage: React.FC = () => {
         ))}
       </div>
 
-      <Card className="bg-card border border-gray-800 shadow-xl p-4 overflow-x-auto">
+      <Card className="bg-card-background border border-secondary/30 shadow-xl p-4 overflow-x-auto">
         <Table>
           <TableHeader className="">
-            <TableRow className="border-b border-gray-700 hover:bg-blue-primary">
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+            <TableRow className="border-b border-secondary/30 hover:bg-card-background">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Nombre
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Correo Electrónico
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Rol
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Estado
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Acciones
               </TableHead>
             </TableRow>

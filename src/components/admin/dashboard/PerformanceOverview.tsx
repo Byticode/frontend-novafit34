@@ -31,24 +31,24 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({
   change,
   data,
   chartType,
-  color,
+  // color,
 }) => {
   const isPositive = change >= 0;
 
   return (
-    <Card className="bg-bg-primary border border-gray-800">
+    <Card className="bg-card-background border-sm border-secondary/30">
       <CardHeader className="p-4 pb-2">
-        <CardTitle className="text-lg font-semibold text-white">
+        <CardTitle className="text-lg font-semibold text-headline">
           {title}
         </CardTitle>
         <div className="flex flex-col">
-          <span className="text-3xl font-extrabold text-white">{value}</span>
-          <span className="text-sm text-gray-400">
+          <span className="text-3xl font-extrabold text-headline">{value}</span>
+          <span className="text-sm text-sub-headline">
             Últimos 3 Meses{' '}
             <span
               className={cn(
                 'font-bold',
-                isPositive ? 'text-green-500' : 'text-red-500'
+                isPositive ? 'text-tertiary' : 'text-red-400'
               )}
             >
               {isPositive ? '+' : ''}
@@ -67,13 +67,13 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({
               <XAxis
                 dataKey="name"
                 stroke="#4B5563"
-                tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                tick={{ fill: '#94a1b2', fontSize: 12 }}
                 axisLine={false}
                 tickLine={false}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: '#1F2937',
+                  backgroundColor: '#16161a',
                   border: 'none',
                   borderRadius: '4px',
                   color: '#E5E7EB',
@@ -84,7 +84,7 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({
               <Line
                 type="monotone"
                 dataKey="value"
-                stroke={color}
+                stroke={'#6246ea'}
                 strokeWidth={2}
                 dot={false}
               />
@@ -97,22 +97,22 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({
               <XAxis
                 dataKey="name"
                 stroke="#4B5563"
-                tick={{ fill: '#9CA3AF', fontSize: 12 }}
+                tick={{ fill: '#94a1b2', fontSize: 12 }}
                 axisLine={false}
                 tickLine={false}
               />
               <Tooltip
                 cursor={{ fill: '#374151', opacity: 0.6 }}
                 contentStyle={{
-                  backgroundColor: '#1F2937',
+                  backgroundColor: '#16161a',
                   border: 'none',
                   borderRadius: '4px',
                   color: '#E5E7EB',
                 }}
-                labelStyle={{ color: '#9CA3AF' }}
+                labelStyle={{ color: '#94a1b2' }}
                 formatter={(val: number) => [`${val}%`, 'Asistencia']}
               />
-              <Bar dataKey="value" fill={color} radius={[4, 4, 0, 0]} />
+              <Bar dataKey="value" fill={'#6246ea'} radius={[4, 4, 0, 0]} />
             </BarChart>
           )}
         </ResponsiveContainer>
@@ -125,7 +125,9 @@ const PerformanceChart: React.FC<PerformanceChartProps> = ({
 export const PerformanceOverview: React.FC = () => {
   return (
     <div className="space-y-4 mb-12">
-      <h2 className="text-2xl font-bold text-white">Resumen de Rendimiento</h2>
+      <h2 className="text-2xl font-bold text-headline">
+        Resumen de Rendimiento
+      </h2>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <PerformanceChart
           title="Crecimiento de Membresía"

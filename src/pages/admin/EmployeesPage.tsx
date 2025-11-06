@@ -108,9 +108,9 @@ const EditStatusModal: React.FC<EditStatusModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[350px] bg-bg-primary border-gray-700 p-6">
-        <DialogHeader className="flex justify-between items-center border-b border-gray-700 pb-3">
-          <DialogTitle className="text-xl font-bold text-white">
+      <DialogContent className="sm:max-w-[350px] bg-background border-secondary/30 p-6">
+        <DialogHeader className="flex justify-between items-center border-b border-secondary/30 pb-3">
+          <DialogTitle className="text-xl font-bold text-headline">
             Cambiar Estado de {employee.name}
           </DialogTitle>
         </DialogHeader>
@@ -118,17 +118,17 @@ const EditStatusModal: React.FC<EditStatusModalProps> = ({
         <div className="py-4 space-y-4">
           {/* Edición de Estado */}
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300 block">
+            <label className="text-sm font-medium text-sub-headline block">
               Estado
             </label>
             <Select
               value={newStatus}
               onValueChange={(value) => setNewStatus(value as EmployeeStatus)}
             >
-              <SelectTrigger className="bg-blue-primary border-gray-700 text-white w-full">
+              <SelectTrigger className="bg-card-background border-secondary/30 text-headline w-full">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent className="bg-gray-800 border-gray-700 text-white">
+              <SelectContent className="bg-card-background border-secondary/30 text-headline">
                 {statusOptions.map((status) => (
                   <SelectItem key={status} value={status}>
                     {status}
@@ -139,10 +139,10 @@ const EditStatusModal: React.FC<EditStatusModalProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-end pt-3 border-t border-gray-700">
+        <div className="flex justify-end pt-3 border-t border-secondary/30">
           <Button
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar
           </Button>
@@ -193,16 +193,16 @@ const AddEmployeeModal: React.FC<AddEmployeeModalProps> = ({
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[450px] bg-bg-primary border-gray-700 p-6">
-        <DialogHeader className="flex justify-start items-center border-b border-gray-700 pb-3">
-          <DialogTitle className="text-xl font-bold text-white flex items-center">
+      <DialogContent className="sm:max-w-[450px] bg-background border-secondary/30 p-6">
+        <DialogHeader className="flex justify-start items-center border-b border-secondary/30 pb-3">
+          <DialogTitle className="text-xl font-bold text-headline flex items-center">
             Añadir Nuevo Empleado
           </DialogTitle>
         </DialogHeader>
 
         <div className="py-4 grid gap-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300">
+            <label className="text-sm font-medium text-sub-headline">
               Nombre Completo
             </label>
             <Input
@@ -213,7 +213,7 @@ const AddEmployeeModal: React.FC<AddEmployeeModalProps> = ({
               }}
               placeholder="Ej: Juan Pérez"
               className={cn(
-                'bg-blue-primary border-gray-700 text-white',
+                'bg-card-background border-secondary/30 text-headline',
                 errors[name] && 'border-red-500'
               )}
             />
@@ -222,7 +222,7 @@ const AddEmployeeModal: React.FC<AddEmployeeModalProps> = ({
             )}
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300">
+            <label className="text-sm font-medium text-sub-headline">
               Correo Electrónico
             </label>
             <Input
@@ -235,7 +235,7 @@ const AddEmployeeModal: React.FC<AddEmployeeModalProps> = ({
               }}
               placeholder="ejemplo@correo.com"
               className={cn(
-                'bg-blue-primary border-gray-700 text-white',
+                'bg-card-background border-secondary/30 text-headline',
                 errors[email] && 'border-red-500'
               )}
             />
@@ -244,7 +244,7 @@ const AddEmployeeModal: React.FC<AddEmployeeModalProps> = ({
             )}
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium text-gray-300">
+            <label className="text-sm font-medium text-sub-headline">
               Tipo de Empleado
             </label>
             <Select
@@ -257,13 +257,13 @@ const AddEmployeeModal: React.FC<AddEmployeeModalProps> = ({
             >
               <SelectTrigger
                 className={cn(
-                  'w-full bg-blue-primary border-gray-700 text-white',
+                  'w-full bg-card-background border-secondary/30 text-headline',
                   errors['type'] && 'border-red-500'
                 )}
               >
                 <SelectValue placeholder="Selecciona un tipo" />
               </SelectTrigger>
-              <SelectContent className="bg-gray-800 border-gray-700 text-white">
+              <SelectContent className="bg-card-background border-secondary/30 text-headline">
                 {employeeTypes.map((t) => (
                   <SelectItem key={t} value={t}>
                     {t}
@@ -277,17 +277,17 @@ const AddEmployeeModal: React.FC<AddEmployeeModalProps> = ({
           </div>
         </div>
 
-        <div className="flex justify-end pt-4 border-t border-gray-700 space-x-2">
+        <div className="flex justify-end pt-4 border-t border-secondary/30 space-x-2">
           <Button
             variant="outline"
             onClick={onClose}
-            className="border-gray-600 text-gray-300 bg-gray-900 hover:bg-gray-700 hover:text-white cursor-pointer"
+            className="bg-transparent border-secondary/30 text-sub-headline hover:bg-card-background hover:text-headline cursor-pointer"
           >
             Cancelar
           </Button>
           <Button
             onClick={handleSave}
-            className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+            className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
           >
             Guardar
           </Button>
@@ -320,13 +320,13 @@ const EmployeeTableRow: React.FC<EmployeeTableRowProps> = ({
 
   return (
     <TableRow
-      className="border-b border-gray-800 hover:bg-gray-700/30 transition-colors cursor-pointer"
+      className="border-b border-secondary/30 hover:bg-background/20 transition-colors cursor-pointer"
       onClick={handleRowClick}
     >
-      <TableCell className="py-4 px-4 font-medium text-white">
+      <TableCell className="py-4 px-4 font-medium text-sub-headline">
         {employee.name}
       </TableCell>
-      <TableCell className="py-4 px-4 text-gray-300">
+      <TableCell className="py-4 px-4 text-sub-headline">
         {employee.email}
       </TableCell>
 
@@ -356,9 +356,9 @@ const EmployeeTableRow: React.FC<EmployeeTableRowProps> = ({
             onEdit(employee);
           }}
           title="Modificar Estado"
-          className="hover:bg-gray-700 cursor-pointer"
+          className="hover:bg-background/30 cursor-pointer"
         >
-          <Pencil className="w-5 h-5 text-indigo-400 hover:text-white" />
+          <Pencil className="w-5 h-5 text-highlight hover:text-headline" />
         </Button>
       </TableCell>
     </TableRow>
@@ -427,12 +427,12 @@ export const EmployeesPage: React.FC = () => {
   return (
     <div className="min-h-screen p-2 lg:p-8">
       <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl lg:text-4xl font-bold text-white">
+        <h1 className="text-3xl lg:text-4xl font-bold text-headline">
           Personal del Gimnasio
         </h1>
         <Button
           onClick={() => setIsAddModalOpen(true)}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+          className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
         >
           <Plus className="w-4 h-4 mr-2" /> Añadir Empleado
         </Button>
@@ -441,18 +441,18 @@ export const EmployeesPage: React.FC = () => {
       {/* Búsqueda y Filtros */}
       <div className="mb-6 space-y-4">
         <div className="relative">
-          <Search className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2" />
+          <Search className="w-5 h-5 text-secondary/30 absolute left-3 top-1/2 transform -translate-y-1/2" />
           <Input
             type="text"
             placeholder="Buscar empleado por nombre o correo..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full p-6 pl-10 bg-blue-primary border-gray-700 text-white placeholder-gray-400"
+            className="w-full p-6 pl-10 bg-card-background border-secondary/30 text-headline placeholder-sub-headline"
           />
         </div>
 
         {/* Botones de Filtro */}
-        <div className="flex space-x-4 border-b border-gray-700">
+        <div className="flex space-x-4 border-b border-secondary/30">
           {allFilters.map((filter) => (
             <button
               key={filter}
@@ -461,12 +461,12 @@ export const EmployeesPage: React.FC = () => {
                 'py-2 px-1 text-sm font-medium transition-colors relative',
                 activeFilter === filter
                   ? 'text-indigo-400'
-                  : 'text-gray-400 hover:text-white cursor-pointer'
+                  : 'text-sub-headline hover:text-headline cursor-pointer'
               )}
             >
               {filter}
               {activeFilter === filter && (
-                <span className="absolute bottom-[-1px] left-0 right-0 h-0.5 bg-indigo-500 rounded-t-sm" />
+                <span className="absolute bottom-[-1px] left-0 right-0 h-0.5 bg-highlight rounded-t-sm" />
               )}
             </button>
           ))}
@@ -474,23 +474,23 @@ export const EmployeesPage: React.FC = () => {
       </div>
 
       {/* Tabla de Empleados */}
-      <Card className="bg-card border border-gray-800 shadow-xl p-4 overflow-x-auto">
+      <Card className="bg-card-background border-sm border-secondary/30 shadow-xl p-4 overflow-x-auto">
         <Table>
-          <TableHeader className="bg-blue-primary">
-            <TableRow className="border-b border-gray-700 hover:bg-blue-primary">
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+          <TableHeader className="bg-card-background">
+            <TableRow className="border-b border-secondary/30 hover:bg-card-background">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Nombre
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Correo Electrónico
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Tipo de Empleado
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Estado
               </TableHead>
-              <TableHead className="py-3 px-4 text-sm font-medium text-gray-400">
+              <TableHead className="py-3 px-4 text-sm font-medium text-headline">
                 Acción
               </TableHead>
             </TableRow>
@@ -507,7 +507,7 @@ export const EmployeesPage: React.FC = () => {
           </TableBody>
         </Table>
         {filteredEmployees.length === 0 && (
-          <div className="text-center py-10 text-gray-500">
+          <div className="text-center py-10 text-sub-headline">
             No se encontraron empleados que coincidan con los filtros.
           </div>
         )}

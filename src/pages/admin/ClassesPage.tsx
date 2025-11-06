@@ -236,21 +236,21 @@ export const ClassesPage: React.FC = () => {
   return (
     <div className="min-h-screen p-4 lg:p-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 lg:mb-8">
-        <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-0">
+        <h1 className="text-3xl lg:text-4xl font-bold text-headline mb-4 md:mb-0">
           Horario de clases
         </h1>
 
         {/* Botón para abrir el modal */}
         <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
           <DialogTrigger asChild>
-            <Button className="bg-indigo-600 hover:bg-indigo-700 text-white flex items-center cursor-pointer">
+            <Button className="bg-highlight hover:bg-highlight/70 text-headline flex items-center cursor-pointer">
               <Plus className="w-5 h-5 mr-2" /> Añadir clase
             </Button>
           </DialogTrigger>
 
-          <DialogContent className="sm:max-w-[425px] md:max-w-3xl max-h-[98%] border-blue-primary/50 bg-bg-primary text-white">
+          <DialogContent className="sm:max-w-[425px] md:max-w-3xl max-h-[98%] border-secondary/30 bg-background text-headline">
             <DialogHeader className="pb-2">
-              <DialogTitle className="text-2xl font-bold text-white">
+              <DialogTitle className="text-2xl font-bold text-headline">
                 Añadir nueva clase
               </DialogTitle>
             </DialogHeader>
@@ -259,7 +259,7 @@ export const ClassesPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="className"
-                  className="block text-sm font-medium text-gray-200 mb-2"
+                  className="block text-sm font-medium text-sub-headline mb-2"
                 >
                   Nombre de la clase
                 </label>
@@ -271,7 +271,7 @@ export const ClassesPage: React.FC = () => {
                     setClassName(e.target.value);
                     setErrors((prev) => ({ ...prev, className: '' }));
                   }}
-                  className={`bg-blue-primary/50 text-white border ${errors.className ? 'border-red-500' : 'border-gray-700/50'} focus:ring-indigo-500 focus:border-indigo-500`}
+                  className={`bg-card-background text-headline border-sm ${errors.className ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
                 />
                 {errors.className && (
                   <p className="mt-1 text-xs text-red-500">
@@ -283,7 +283,7 @@ export const ClassesPage: React.FC = () => {
               <div className="md:col-span-2">
                 <label
                   htmlFor="classDescription"
-                  className="block text-sm font-medium text-gray-200 mb-2"
+                  className="block text-sm font-medium text-sub-headline mb-2"
                 >
                   Descripción
                 </label>
@@ -295,7 +295,7 @@ export const ClassesPage: React.FC = () => {
                     setClassDescription(e.target.value);
                     setErrors((prev) => ({ ...prev, classDescription: '' }));
                   }}
-                  className={`min-h-[100px] bg-blue-primary/50 text-white border ${errors.classDescription ? 'border-red-500' : 'border-gray-700/50'} focus:ring-indigo-500 focus:border-indigo-500`}
+                  className={`min-h-[100px] bg-card-background text-headline border-sm ${errors.classDescription ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
                 />
                 {errors.classDescription && (
                   <p className="mt-1 text-xs text-red-500">
@@ -307,7 +307,7 @@ export const ClassesPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="instructor"
-                  className="block text-sm font-medium text-gray-200 mb-2"
+                  className="block text-sm font-medium text-sub-headline mb-2"
                 >
                   Instructor
                 </label>
@@ -319,7 +319,7 @@ export const ClassesPage: React.FC = () => {
                     setInstructor(e.target.value);
                     setErrors((prev) => ({ ...prev, instructor: '' }));
                   }}
-                  className={`bg-blue-primary/50 text-white border ${errors.instructor ? 'border-red-500' : 'border-gray-700/50'} focus:ring-indigo-500 focus:border-indigo-500`}
+                  className={`bg-card-background text-headline border-sm ${errors.instructor ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
                 />
                 {errors.instructor && (
                   <p className="mt-1 text-xs text-red-500">
@@ -331,7 +331,7 @@ export const ClassesPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="day"
-                  className="block text-sm font-medium text-gray-100 mb-2"
+                  className="block text-sm font-medium text-sub-headline mb-2"
                 >
                   Día
                 </label>
@@ -343,11 +343,11 @@ export const ClassesPage: React.FC = () => {
                   }}
                 >
                   <SelectTrigger
-                    className={`w-full bg-blue-primary/50 text-white border ${errors.day ? 'border-red-500' : 'border-gray-700/50'} focus:ring-indigo-500 focus:border-indigo-500`}
+                    className={`w-full bg-card-background text-headline border-sm ${errors.day ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
                   >
                     <SelectValue placeholder="Selecciona un día" />
                   </SelectTrigger>
-                  <SelectContent className="bg-card text-white border-gray-700">
+                  <SelectContent className="bg-card-background text-headline border-secondary">
                     <SelectItem value="Lunes">Lunes</SelectItem>
                     <SelectItem value="Martes">Martes</SelectItem>
                     <SelectItem value="Miércoles">Miércoles</SelectItem>
@@ -365,7 +365,7 @@ export const ClassesPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="hour"
-                  className="block text-sm font-medium text-gray-100 mb-2"
+                  className="block text-sm font-medium text-sub-headline mb-2"
                 >
                   Hora
                 </label>
@@ -377,11 +377,11 @@ export const ClassesPage: React.FC = () => {
                   }}
                 >
                   <SelectTrigger
-                    className={`w-full bg-blue-primary/50 text-white border ${errors.hour ? 'border-red-500' : 'border-gray-700/50'} focus:ring-indigo-500 focus:border-indigo-500`}
+                    className={`w-full bg-card-background text-headline border-sm ${errors.hour ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
                   >
                     <SelectValue placeholder="Selecciona una hora" />
                   </SelectTrigger>
-                  <SelectContent className="bg-card text-white border-gray-700">
+                  <SelectContent className="bg-card-background text-headline border-secondary/30">
                     {/* Generar horas cada 30 min por ejemplo */}
                     {Array.from({ length: 17 }, (_, i) => 6 + i).flatMap(
                       (h) => [
@@ -405,7 +405,7 @@ export const ClassesPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="duration"
-                  className="block text-sm font-medium text-gray-200 mb-2"
+                  className="block text-sm font-medium text-sub-headline mb-2"
                 >
                   Duración (minutos)
                 </label>
@@ -418,7 +418,7 @@ export const ClassesPage: React.FC = () => {
                     setDuration(e.target.value);
                     setErrors((prev) => ({ ...prev, duration: '' }));
                   }}
-                  className={`bg-blue-primary/50 text-white border ${errors.duration ? 'border-red-500' : 'border-gray-700/50'} focus:ring-indigo-500 focus:border-indigo-500`}
+                  className={`bg-card-background text-headline border-sm ${errors.duration ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
                 />
                 {errors.duration && (
                   <p className="mt-1 text-xs text-red-500">{errors.duration}</p>
@@ -428,7 +428,7 @@ export const ClassesPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="capacity"
-                  className="block text-sm font-medium text-gray-200 mb-2"
+                  className="block text-sm font-medium text-sub-headline mb-2"
                 >
                   Capacidad máxima
                 </label>
@@ -441,7 +441,7 @@ export const ClassesPage: React.FC = () => {
                     setCapacity(e.target.value);
                     setErrors((prev) => ({ ...prev, capacity: '' }));
                   }}
-                  className={`bg-blue-primary/50 text-white border ${errors.capacity ? 'border-red-500' : 'border-gray-700/50'} focus:ring-indigo-500 focus:border-indigo-500`}
+                  className={`bg-card-background text-headline border-sm ${errors.capacity ? 'border-red-500' : 'border-secondary/30'} focus:ring-highlight focus:border-highlight`}
                 />
                 {errors.capacity && (
                   <p className="mt-1 text-xs text-red-500">{errors.capacity}</p>
@@ -453,14 +453,14 @@ export const ClassesPage: React.FC = () => {
               <Button
                 variant="outline"
                 onClick={handleCancelClass}
-                className="bg-transparent text-gray-300 border-gray-600 hover:bg-gray-700 hover:text-white cursor-pointer"
+                className="bg-transparent text-sub-headline border-secondary/30 hover:bg-card-background hover:text-headline cursor-pointer"
               >
                 Cancelar
               </Button>
               <Button
                 type="submit"
                 onClick={handleSaveClass}
-                className="bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer"
+                className="bg-highlight hover:bg-highlight/70 text-headline cursor-pointer"
               >
                 Guardar clase
               </Button>
@@ -470,13 +470,13 @@ export const ClassesPage: React.FC = () => {
       </div>
 
       {/* Selector de Vista: Semana - Lista */}
-      <div className="flex border-b border-gray-700 mb-6">
+      <div className="flex border-b border-secondary/30 mb-6">
         <button
           onClick={() => setActiveView('semana')}
           className={`py-2 px-4 text-sm font-medium ${
             activeView === 'semana'
-              ? 'border-b-2 border-indigo-500 text-indigo-400'
-              : 'text-gray-400 hover:text-white cursor-pointer'
+              ? 'border-b-2 border-highlight text-indigo-400'
+              : 'text-sub-headline hover:text-headline cursor-pointer'
           } transition-colors`}
         >
           Semana
@@ -485,8 +485,8 @@ export const ClassesPage: React.FC = () => {
           onClick={() => setActiveView('lista')}
           className={`py-2 px-4 text-sm font-medium ${
             activeView === 'lista'
-              ? 'border-b-2 border-indigo-500 text-indigo-400'
-              : 'text-gray-400 hover:text-white cursor-pointer'
+              ? 'border-b-2 border-highlight text-indigo-400'
+              : 'text-sub-headline hover:text-headline cursor-pointer'
           } transition-colors`}
         >
           Lista
@@ -502,18 +502,18 @@ export const ClassesPage: React.FC = () => {
               mode="single"
               selected={date}
               onSelect={setDate}
-              className="bg-bg-primary text-white flex items-center justify-center"
+              className="bg-card-background border-sm border-secondary/30 rounded-lg p-6 text-headline flex items-center justify-center"
               classNames={{
                 month: 'space-y-4 font-semibold',
                 caption: 'flex justify-center pt-1 relative items-center',
-                caption_label: 'text-sm font-medium text-white',
+                caption_label: 'text-sm font-medium text-headline',
                 nav: 'space-x-1 flex items-center justify-between w-full absolute top-0 left-0 rigth-0',
                 nav_button:
-                  'h-7 w-7 bg-transparent hover:bg-transparent! p-0 hover:text-white!',
+                  'h-7 w-7 bg-transparent hover:bg-transparent! p-0 hover:text-headline!',
                 nav_button_previous:
-                  'absolute left-1 hover:bg-transparent! hover:text-white!',
+                  'absolute left-1 hover:bg-transparent! hover:text-headline!',
                 nav_button_next:
-                  'absolute right-1 hover:bg-transparent! hover:text-white!',
+                  'absolute right-1 hover:bg-transparent! hover:text-headline!',
 
                 table: 'w-full border-collapse space-y-1',
                 head_row: 'flex justify-around mt-2',
@@ -536,36 +536,36 @@ export const ClassesPage: React.FC = () => {
           </div>
 
           {/* Tabla de Horario Semanal */}
-          <div className="lg:col-span-2 bg-blue-primary p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-semibold text-white mb-4">
+          <div className="lg:col-span-2">
+            <h2 className="text-xl font-semibold text-headline mb-4">
               Horario de Clases Semanal
             </h2>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto bg-card-background p-6 rounded-lg shadow-md">
               <Table className="min-w-full text-left table-fixed">
                 <TableHeader>
-                  <TableRow className="border-gray-700 bg-blue-primary hover:bg-blue-primary">
-                    <TableHead className="w-24 text-sm font-semibold text-gray-400">
+                  <TableRow className="border-secondary/30 bg-card-background hover:bg-card-background">
+                    <TableHead className="w-24 text-sm font-semibold text-headline">
                       Hora
                     </TableHead>
-                    <TableHead className="text-sm font-semibold text-gray-400">
+                    <TableHead className="text-sm font-semibold text-headline">
                       Lunes
                     </TableHead>
-                    <TableHead className="text-sm font-semibold text-gray-400">
+                    <TableHead className="text-sm font-semibold text-headline">
                       Martes
                     </TableHead>
-                    <TableHead className="text-sm font-semibold text-gray-400">
+                    <TableHead className="text-sm font-semibold text-headline">
                       Miércoles
                     </TableHead>
-                    <TableHead className="text-sm font-semibold text-gray-400">
+                    <TableHead className="text-sm font-semibold text-headline">
                       Jueves
                     </TableHead>
-                    <TableHead className="text-sm font-semibold text-gray-400">
+                    <TableHead className="text-sm font-semibold text-headline">
                       Viernes
                     </TableHead>
-                    <TableHead className="text-sm font-semibold text-gray-400">
+                    <TableHead className="text-sm font-semibold text-headline">
                       Sábado
                     </TableHead>
-                    <TableHead className="text-sm font-semibold text-gray-400">
+                    <TableHead className="text-sm font-semibold text-headline">
                       Domingo
                     </TableHead>
                   </TableRow>
@@ -575,9 +575,9 @@ export const ClassesPage: React.FC = () => {
                   {WEEKLY_SCHEDULE.map((row) => (
                     <TableRow
                       key={row.time}
-                      className="border-gray-800 hover:bg-gray-700/30 transition-colors"
+                      className="border-secondary/20 hover:bg-background/20 transition-colors"
                     >
-                      <TableCell className="py-4 px-2 font-medium text-white w-24">
+                      <TableCell className="py-4 px-2 font-medium text-headline w-24">
                         {row.time}
                       </TableCell>
 
@@ -586,7 +586,7 @@ export const ClassesPage: React.FC = () => {
                         .map((day) => (
                           <TableCell
                             key={day}
-                            className="py-4 px-1 text-gray-300"
+                            className="py-4 px-1 text-sub-headline"
                           >
                             <ClassCell content={row[day as keyof typeof row]} />
                           </TableCell>
@@ -599,11 +599,11 @@ export const ClassesPage: React.FC = () => {
           </div>
         </div>
       ) : (
-        <div className="bg-card p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-white mb-4">
+        <div className="bg-card-background p-6 rounded-lg shadow-md">
+          <h2 className="text-xl font-semibold text-headline mb-4">
             Lista de Clases
           </h2>
-          <p className="text-gray-400">
+          <p className="text-sub-headline">
             Supongo que aqui ira una lista de clases...
           </p>
           {/* ... */}

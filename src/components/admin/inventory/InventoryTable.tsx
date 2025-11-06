@@ -20,26 +20,26 @@ export const InventoryTable: React.FC<InventoryTableProps> = ({
   onOpenStatusChange,
 }) => {
   return (
-    <div className="bg-blue-primary rounded-lg p-6 overflow-x-auto hidden lg:block">
+    <div className="bg-card-background rounded-lg p-6 overflow-x-auto hidden lg:block">
       <Table className="min-w-full text-left">
         <TableHeader>
-          <TableRow className="border-gray-700 bg-blue-primary hover:bg-blue-primary">
-            <TableHead className="text-sm font-semibold text-gray-400">
+          <TableRow className="border-secondary/30 bg-card-background hover:bg-card-background">
+            <TableHead className="text-sm font-semibold text-headline">
               Nombre
             </TableHead>
-            <TableHead className="text-sm font-semibold text-gray-400">
+            <TableHead className="text-sm font-semibold text-headline">
               Tipo
             </TableHead>
-            <TableHead className="text-sm font-semibold text-gray-400">
+            <TableHead className="text-sm font-semibold text-headline">
               Estado
             </TableHead>
-            <TableHead className="text-sm font-semibold text-gray-400">
+            <TableHead className="text-sm font-semibold text-headline">
               Ubicación
             </TableHead>
-            <TableHead className="text-sm font-semibold text-gray-400">
+            <TableHead className="text-sm font-semibold text-headline">
               Fecha de compra
             </TableHead>
-            <TableHead className="text-sm font-semibold text-gray-400">
+            <TableHead className="text-sm font-semibold text-headline">
               Acciones
             </TableHead>
           </TableRow>
@@ -48,12 +48,12 @@ export const InventoryTable: React.FC<InventoryTableProps> = ({
           {filteredItems.map((item) => (
             <TableRow
               key={item.id}
-              className="border-gray-800 hover:bg-gray-700/30 transition-colors"
+              className="border-secondary/20 hover:bg-background/20 transition-colors"
             >
-              <TableCell className="py-4 px-2 font-medium text-white">
+              <TableCell className="py-4 px-2 font-medium text-sub-headline">
                 {item.nombre}
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 {item.tipo}
               </TableCell>
               <TableCell className="py-4 px-2">
@@ -67,17 +67,17 @@ export const InventoryTable: React.FC<InventoryTableProps> = ({
                   {item.estado}
                 </span>
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 {item.ubicacion}
               </TableCell>
-              <TableCell className="py-4 px-2 text-gray-300">
+              <TableCell className="py-4 px-2 text-sub-headline">
                 {item.fechaCompra}
               </TableCell>
               <TableCell className="py-4 px-2">
                 <Button
                   variant="link"
                   onClick={() => onOpenStatusChange(item)}
-                  className="p-0 h-auto text-indigo-400 hover:text-indigo-500 cursor-pointer"
+                  className="p-0 h-auto text-indigo-400 hover:text-highlight cursor-pointer"
                 >
                   Cambiar estado
                 </Button>

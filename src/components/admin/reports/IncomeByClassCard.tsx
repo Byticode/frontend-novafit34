@@ -26,19 +26,19 @@ export const IncomeByClassCard: React.FC<IncomeByClassCardProps> = ({
   const isPositive = percentageChange >= 0;
 
   return (
-    <Card className="bg-bg-primary border border-gray-800 shadow-xl">
+    <Card className="bg-card-background border-sm border-secondary/30 shadow-xl">
       <CardHeader className="p-6 pb-2">
-        <CardTitle className="text-xl font-bold text-white mb-2">
+        <CardTitle className="text-xl font-bold text-headline mb-2">
           Ingresos por Clase
         </CardTitle>
         <div className="flex items-center space-x-2">
-          <span className="text-4xl font-extrabold text-white">
+          <span className="text-4xl font-extrabold text-headline">
             ${totalIncome.toLocaleString()}
           </span>
           <span
             className={cn(
               'text-sm font-semibold',
-              isPositive ? 'text-green-500' : 'text-red-500'
+              isPositive ? 'text-tertiary' : 'text-red-400'
             )}
           >
             {isPositive ? '+' : ''}
@@ -73,7 +73,7 @@ export const IncomeByClassCard: React.FC<IncomeByClassCardProps> = ({
             <Tooltip
               cursor={{ fill: '#374151', opacity: 0.6 }}
               contentStyle={{
-                backgroundColor: '#1F2937',
+                backgroundColor: '#16161a',
                 border: 'none',
                 borderRadius: '4px',
                 color: '#E5E7EB',
@@ -84,7 +84,7 @@ export const IncomeByClassCard: React.FC<IncomeByClassCardProps> = ({
                 'Ingreso',
               ]}
             />
-            <Bar dataKey="income" fill="#008cff80" radius={[0, 4, 4, 0]} />
+            <Bar dataKey="income" fill="#6246ea" radius={[0, 4, 4, 0]} />
           </BarChart>
         </ResponsiveContainer>
       </CardContent>

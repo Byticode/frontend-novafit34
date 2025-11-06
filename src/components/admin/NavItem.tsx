@@ -19,8 +19,8 @@ export const NavItem: React.FC<NavItemProps> = ({ name, href, icon: Icon }) => {
       isActive={isActive}
       tooltip={name}
       className={cn(
-        isActive && '!bg-[#21294a] !text-white',
-        'px-4 text-base text-white hover:bg-[#21294a] hover:text-white'
+        isActive && '!bg-card-background !text-headline',
+        'px-4 text-base text-headline hover:bg-card-background hover:text-headline'
       )}
     >
       <Link to={href} className="h-11">

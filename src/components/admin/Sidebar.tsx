@@ -56,11 +56,11 @@ export const AppSidebar: React.FC = () => {
     <Sidebar
       variant="sidebar"
       collapsible="offcanvas"
-      className="border-r border-[#21294a]"
+      className="bg-background border-r border-secondary/30"
     >
-      <SidebarHeader className="border-b border-[#21294a]">
+      <SidebarHeader className="border-b border-secondary/30">
         <div className="px-6 py-4">
-          <h2 className="text-2xl font-bold text-white">Novafit34</h2>
+          <h2 className="text-2xl font-bold text-headline">Novafit34</h2>
         </div>
       </SidebarHeader>
 
@@ -78,12 +78,12 @@ export const AppSidebar: React.FC = () => {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-[#21294a]">
+      <SidebarFooter className="border-t border-secondary/30 px-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <button
               onClick={handleLogout}
-              className="flex items-center w-full px-4 py-3 text-gray-300 hover:text-white hover:bg-indigo-600/20 rounded-lg transition-colors duration-200"
+              className="flex items-center w-full px-4 py-3 text-red-400 hover:text-red-500 hover:bg-card-background rounded-lg transition-colors duration-200 cursor-pointer"
             >
               <LogOut className="w-5 h-5 mr-3" />
               <span className="font-medium">Salir</span>

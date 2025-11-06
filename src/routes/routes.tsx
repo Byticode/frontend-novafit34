@@ -28,10 +28,10 @@ const PrivateRoute: React.FC<{
   // Show loading while checking authentication
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-bg-primary flex flex-col items-center justify-center p-4">
-        <div className="text-white text-center">
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
+        <div className="text-headline text-center">
           <h2 className="text-2xl font-bold mb-4">Cargando...</h2>
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b border-headline mx-auto"></div>
         </div>
       </div>
     );
@@ -53,7 +53,7 @@ const PrivateRoute: React.FC<{
 };
 
 const PlaceholderPage = ({ title }: { title: string }) => (
-  <div className="p-8 text-white">
+  <div className="p-8 text-headline">
     <h1 className="text-3xl font-bold">Página de {title}</h1>
     <p className="mt-2 text-gray-400">Aun esta en desarrollo... |-/</p>
   </div>
@@ -109,7 +109,7 @@ export const AppRoutes = () => {
       <Route
         path="/unauthorized"
         element={
-          <div className="bg-bg-primary min-h-screen flex items-center justify-center text-white text-3xl font-bold">
+          <div className="bg-background min-h-screen flex items-center justify-center text-headline text-3xl font-bold">
             No autorizado
           </div>
         }

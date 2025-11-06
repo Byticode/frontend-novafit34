@@ -39,8 +39,8 @@ export const TasksSummary: React.FC = () => {
         className={cn(
           'px-3 py-1 rounded-full text-xs font-semibold w-fit',
           isCompleted
-            ? 'bg-green-900/40 text-green-300'
-            : 'bg-orange-900/40 text-orange-300'
+            ? 'bg-green-900/30 text-green-300'
+            : 'bg-orange-900/30 text-orange-300'
         )}
       >
         {isCompleted ? 'Completado' : 'Pendiente'}
@@ -50,22 +50,22 @@ export const TasksSummary: React.FC = () => {
 
   return (
     <div className="space-y-4 mb-10">
-      <h2 className="text-2xl font-bold text-white">Resumen de Tareas</h2>
-      <Card className="bg-card border border-gray-800 shadow-md p-6">
+      <h2 className="text-2xl font-bold text-headline">Resumen de Tareas</h2>
+      <Card className="bg-card-background border-sm border-secondary/30 shadow-md p-6">
         <CardContent className="p-0">
           <Table>
             <TableHeader>
-              <TableRow className="border-gray-700 bg-[var(--blue-primary)] hover:bg-[var(--blue-primary)]">
-                <TableHead className="text-sm font-medium text-gray-400 w-1/2">
+              <TableRow className="border-secondary/30 bg-card-background hover:bg-card-background">
+                <TableHead className="text-sm font-medium text-headline w-1/2">
                   Tarea
                 </TableHead>
-                <TableHead className="text-sm font-medium text-gray-400 w-1/4">
+                <TableHead className="text-sm font-medium text-headline w-1/4">
                   Estado
                 </TableHead>
-                <TableHead className="text-sm font-medium text-gray-400 w-1/4">
+                <TableHead className="text-sm font-medium text-headline w-1/4">
                   Fecha Límite
                 </TableHead>
-                <TableHead className="text-sm font-medium text-gray-400 text-right">
+                <TableHead className="text-sm font-medium text-headline text-right">
                   Acción
                 </TableHead>
               </TableRow>
@@ -74,15 +74,15 @@ export const TasksSummary: React.FC = () => {
               {tasks.map((task) => (
                 <TableRow
                   key={task.id}
-                  className="border-gray-800 hover:bg-gray-700/30 transition-colors"
+                  className="border-secondary/20 hover:bg-background/20 transition-colors"
                 >
-                  <TableCell className="font-medium text-white">
+                  <TableCell className="font-medium text-sub-headline">
                     {task.taskName}
                   </TableCell>
                   <TableCell>
                     <StatusTag status={task.status} />
                   </TableCell>
-                  <TableCell className="text-gray-300">
+                  <TableCell className="text-sub-headline">
                     {task.dueDate}
                   </TableCell>
                   <TableCell className="text-right">
@@ -93,8 +93,8 @@ export const TasksSummary: React.FC = () => {
                       className={cn(
                         'h-8 px-2',
                         task.status === 'Pendiente'
-                          ? 'text-green-500 hover:bg-green-300/30 cursor-pointer'
-                          : 'text-orange-500 hover:bg-orange-300/30 cursor-pointer'
+                          ? 'text-tertiary hover:text-tertiary hover:bg-tertiary/20 cursor-pointer'
+                          : 'text-orange-400 hover:text-orange-400 hover:bg-orange-300/20 cursor-pointer'
                       )}
                       title={
                         task.status === 'Pendiente'
