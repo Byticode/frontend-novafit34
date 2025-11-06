@@ -78,12 +78,12 @@ export const AppSidebar: React.FC = () => {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-secondary/30">
+      <SidebarFooter className="border-t border-secondary/30 px-4">
         <SidebarMenu>
           <SidebarMenuItem>
             <button
               onClick={handleLogout}
-              className="flex items-center w-full px-4 py-3 text-sub-headline hover:text-headline hover:bg-card-background rounded-lg transition-colors duration-200 cursor-pointer"
+              className="flex items-center w-full px-4 py-3 text-red-400 hover:text-red-500 hover:bg-card-background rounded-lg transition-colors duration-200 cursor-pointer"
             >
               <LogOut className="w-5 h-5 mr-3" />
               <span className="font-medium">Salir</span>
