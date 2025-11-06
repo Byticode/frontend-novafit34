@@ -60,10 +60,10 @@ export const ActivityLogModal: React.FC<ActivityLogModalProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-xl bg-bg-primary text-white border-gray-700">
-        <DialogHeader className="border-b border-gray-700 pb-4 mb-4">
-          <DialogTitle className="text-2xl font-bold text-white flex items-center">
-            <History className="w-6 h-6 mr-2 text-indigo-400" /> Registro de
+      <DialogContent className="sm:max-w-xl bg-background text-headline border-secondary/30">
+        <DialogHeader className="border-b border-secondary/30 pb-4 mb-4">
+          <DialogTitle className="text-2xl font-bold text-headline flex items-center">
+            <History className="w-6 h-6 mr-2 text-highlight" /> Registro de
             Actividad
           </DialogTitle>
         </DialogHeader>
@@ -75,14 +75,14 @@ export const ActivityLogModal: React.FC<ActivityLogModalProps> = ({
               return (
                 <div
                   key={activity.id}
-                  className="flex items-start space-x-4 p-3  hover:bg-gray-800 transition-colors border-b border-gray-700 last:border-b-0"
+                  className="flex items-start space-x-4 p-3 hover:bg-background/20 transition-colors border-b border-secondary/30 last:border-b-0"
                 >
-                  <Icon className="w-5 h-5 mt-1 text-gray-400 flex-shrink-0" />
+                  <Icon className="w-5 h-5 mt-1 text-sub-headline flex-shrink-0" />
                   <div className="flex-grow">
-                    <p className="text-white font-medium">
+                    <p className="text-headline font-medium">
                       {activity.description}
                     </p>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-sub-headline mt-1">
                       {new Date(activity.timestamp).toLocaleString('es-ES', {
                         dateStyle: 'short',
                         timeStyle: 'short',

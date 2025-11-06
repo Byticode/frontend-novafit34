@@ -56,19 +56,19 @@ const SettingsCard: React.FC<{ option: SettingOption }> = ({ option }) => {
   return (
     <Card
       className={cn(
-        'cursor-pointer bg-card border border-gray-800 hover:bg-gray-800/50 transition-colors shadow-lg',
+        'cursor-pointer bg-card-background border border-secondary/30 hover:bg-card-background/60 transition-colors shadow-lg',
         'flex flex-col justify-between h-full'
       )}
       onClick={() => navigate(option.route)}
     >
       <CardHeader className="flex flex-col items-start justify-between space-y-0 p-4">
-        <Icon className="w-6 h-6 text-indigo-400" />
-        <CardTitle className="text-xl font-bold text-white">
+        <Icon className="w-6 h-6 text-highlight" />
+        <CardTitle className="text-xl font-bold text-headline">
           {option.title}
         </CardTitle>
       </CardHeader>
       <CardContent className="p-4 pt-0">
-        <p className="text-sm text-gray-400">{option.description}</p>
+        <p className="text-sm text-sub-headline">{option.description}</p>
       </CardContent>
     </Card>
   );
@@ -77,8 +77,8 @@ const SettingsCard: React.FC<{ option: SettingOption }> = ({ option }) => {
 export const SettingsPage: React.FC = () => {
   return (
     <div className="min-h-screen p-4 lg:p-8 space-y-4">
-      <h1 className="text-3xl lg:text-4xl font-bold text-white">Ajustes</h1>
-      <p className="text-gray-400">
+      <h1 className="text-3xl lg:text-4xl font-bold text-headline">Ajustes</h1>
+      <p className="text-sub-headline">
         Personaliza y gestiona la configuración de Novafit34.
       </p>
 

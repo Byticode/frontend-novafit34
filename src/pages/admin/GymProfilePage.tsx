@@ -87,66 +87,66 @@ export const GymProfilePage: React.FC = () => {
         <ArrowLeft className="w-5 h-5 mr-2" /> Volver a Ajustes
       </Button>
 
-      <h1 className="text-3xl lg:text-4xl font-bold text-white">
+      <h1 className="text-3xl lg:text-4xl font-bold text-headline">
         Perfil del Gimnasio
       </h1>
-      <p className="text-gray-400">
+      <p className="text-sub-headline">
         Actualiza la información básica, contacto y logo del gimnasio.
       </p>
 
-      <Card className="bg-bg-primary border-none p-6 mt-10">
+      <Card className="bg-background border-secondary/30 p-6 mt-10">
         <form onSubmit={handleSave} className="space-y-8">
           {/* Campos de Información General */}
           <div className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="nombre" className="text-white">
+                <Label htmlFor="nombre" className="text-sub-headline">
                   Nombre del Gimnasio
                 </Label>
                 <Input
                   id="nombre"
                   value={profileData.nombre}
                   onChange={handleChange}
-                  className="bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+                  className="bg-card-background border-secondary/30 text-headline focus:ring-highlight"
                   required
                 />
               </div>
 
               <div className="space-y-2 md:col-span-2">
-                <Label htmlFor="direccion" className="text-white">
+                <Label htmlFor="direccion" className="text-sub-headline">
                   Dirección
                 </Label>
                 <Input
                   id="direccion"
                   value={profileData.direccion}
                   onChange={handleChange}
-                  className="bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+                  className="bg-card-background border-secondary/30 text-headline focus:ring-highlight"
                   required
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="telefono" className="text-white">
+                <Label htmlFor="telefono" className="text-sub-headline">
                   Teléfono
                 </Label>
                 <Input
                   id="telefono"
                   value={profileData.telefono}
                   onChange={handleChange}
-                  className="bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+                  className="bg-card-background border-secondary/30 text-headline focus:ring-highlight"
                   type="tel"
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="correo" className="text-white">
+                <Label htmlFor="correo" className="text-sub-headline">
                   Correo Electrónico
                 </Label>
                 <Input
                   id="correo"
                   value={profileData.correo}
                   onChange={handleChange}
-                  className="bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+                  className="bg-card-background border-secondary/30 text-headline focus:ring-highlight"
                   type="email"
                   required
                 />
@@ -155,28 +155,28 @@ export const GymProfilePage: React.FC = () => {
 
             {/* Horario de Apertura */}
             <div className="space-y-2 pt-4">
-              <Label htmlFor="horarioApertura" className="text-white">
-                Horario de Apertura (Líneas múltiples)
+              <Label htmlFor="horarioApertura" className="text-sub-headline">
+                Horario de Apertura
               </Label>
               <Textarea
                 id="horarioApertura"
                 value={profileData.horarioApertura}
                 onChange={handleChange}
-                className="min-h-[150px] bg-blue-primary border-gray-700 text-white focus:ring-indigo-500"
+                className="min-h-[150px] bg-card-background border-secondary/30 text-headline focus:ring-highlight"
                 placeholder="Ejemplo: L-V: 6 AM - 10 PM, Sáb: 8 AM - 3 PM"
               />
             </div>
           </div>
 
           {/* Sección del Logo */}
-          <div className="space-y-4 pt-4 border-t border-gray-700">
-            <Label className="text-white text-lg font-semibold">
+          <div className="space-y-4 pt-4 border-t border-secondary/30">
+            <Label className="text-sub-headline text-lg font-semibold">
               Logo del Gimnasio
             </Label>
 
             <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-8">
               {/* Visualización del Logo */}
-              <div className="w-full max-w-xs h-auto bg-gray-900 rounded-lg overflow-hidden border border-gray-700 p-4">
+              <div className="w-full max-w-xs h-auto bg-card-background rounded-lg overflow-hidden border border-secondary/30 p-4">
                 {profileData.logoUrl ? (
                   <img
                     src={profileData.logoUrl}
@@ -184,7 +184,7 @@ export const GymProfilePage: React.FC = () => {
                     className="w-full h-auto object-contain"
                   />
                 ) : (
-                  <div className="h-32 flex items-center justify-center text-gray-500 border border-dashed border-gray-600 rounded">
+                  <div className="h-32 flex items-center justify-center text-sub-headline border border-dashed border-secondary/30 rounded">
                     Sin Logo
                   </div>
                 )}
@@ -203,7 +203,7 @@ export const GymProfilePage: React.FC = () => {
                   htmlFor="logo-upload"
                   className={cn(
                     'cursor-pointer inline-flex items-center justify-center rounded-md font-medium',
-                    'h-10 px-4 py-2 bg-indigo-600 text-white hover:bg-indigo-700 transition-colors'
+                    'h-10 px-4 py-2 bg-highlight text-headline hover:bg-highlight/70 transition-colors'
                   )}
                 >
                   <Upload className="w-4 h-4 mr-2" /> Subir o Cambiar Logo
@@ -213,10 +213,10 @@ export const GymProfilePage: React.FC = () => {
           </div>
 
           {/* 3. Botón de Guardar */}
-          <div className="pt-6 border-t border-gray-700 flex justify-end">
+          <div className="pt-6 border-t border-secondary/30 flex justify-end">
             <Button
               type="submit"
-              className="bg-indigo-600 hover:bg-indigo-700 text-white shadow-lg cursor-pointer"
+              className="bg-highlight hover:bg-highlight/70 text-headline shadow-lg cursor-pointer"
               disabled={isSaving}
             >
               {isSaving ? 'Guardando...' : 'Guardar Cambios'}
