@@ -266,7 +266,10 @@ function SidebarTrigger({
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon"
-      className={cn('size-7 text-white cursor-w-resize', className)}
+      className={cn(
+        'size-7 text-white bg-card-background cursor-w-resize',
+        className
+      )}
       onClick={(event: React.MouseEvent<HTMLButtonElement>) => {
         onClick?.(event);
         toggleSidebar();
